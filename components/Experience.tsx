@@ -49,7 +49,7 @@ const JOBS: Job[] = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-28 z-10">
+    <section id="experience" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 z-10">
       <Reveal>
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent-cyan">
@@ -57,29 +57,29 @@ export default function Experience() {
           </span>
           <div className="h-[1px] flex-1 bg-line" />
         </div>
-        <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-ivory tracking-tight">
+        <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-ivory tracking-tight">
           Where I&apos;ve Engineered &amp; Delivered
         </h2>
       </Reveal>
 
       {/* Timeline List */}
-      <div className="mt-12 relative border-l-2 border-line/60 ml-4 sm:ml-8 space-y-12 pl-6 sm:pl-10">
+      <div className="mt-10 sm:mt-12 relative border-l-2 border-line/60 ml-3 sm:ml-8 space-y-8 sm:space-y-12 pl-5 sm:pl-10">
         {JOBS.map((job, idx) => (
           <Reveal key={job.company} delay={idx * 0.12} className="relative group">
             {/* Timeline Node Point */}
             <div
-              className={`absolute -left-[1.95rem] sm:-left-[3.05rem] top-1.5 h-5 w-5 rounded-full border-2 bg-ink shadow-glow transition-transform group-hover:scale-125 ${job.accentColor}`}
+              className={`absolute -left-[1.7rem] sm:-left-[3.05rem] top-1.5 h-5 w-5 rounded-full border-2 bg-ink shadow-glow transition-transform group-hover:scale-125 ${job.accentColor}`}
             >
               <div className="h-full w-full rounded-full bg-current opacity-40 animate-pulse" />
             </div>
 
             {/* Main Card */}
-            <div className="glass-panel-interactive rounded-2xl p-6 sm:p-8">
-              <div className="flex flex-wrap items-start justify-between gap-3">
+            <div className="glass-panel-interactive rounded-2xl p-5 sm:p-8">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                 <div>
-                  <div className="flex items-center gap-2">
+                  <div className="flex flex-wrap items-center gap-2">
                     <span className="font-mono text-xs text-muted flex items-center gap-1">
-                      <Calendar className="h-3.5 w-3.5 text-accent-purple" />
+                      <Calendar className="h-3.5 w-3.5 text-accent-purple shrink-0" />
                       {job.period}
                     </span>
                     <span className={`font-mono text-[10px] rounded-full border px-2.5 py-0.5 font-medium ${job.badgeColor}`}>
@@ -87,9 +87,9 @@ export default function Experience() {
                     </span>
                   </div>
 
-                  <h3 className="mt-2 text-xl sm:text-2xl font-bold text-ivory flex items-center gap-2">
+                  <h3 className="mt-2 text-lg sm:text-2xl font-bold text-ivory flex flex-wrap items-center gap-1.5 sm:gap-2">
                     <span>{job.role}</span>
-                    <span className="text-muted font-normal text-base sm:text-lg">
+                    <span className="text-muted font-normal text-sm sm:text-lg">
                       @ {job.company}
                     </span>
                   </h3>
@@ -100,7 +100,7 @@ export default function Experience() {
                     href={job.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 rounded-lg border border-line bg-panel-light px-3 py-1.5 font-mono text-xs text-accent-cyan hover:border-accent-cyan hover:bg-accent-cyan/10 transition-all"
+                    className="flex items-center gap-1.5 rounded-lg border border-line bg-panel-light px-3 py-1.5 font-mono text-xs text-accent-cyan hover:border-accent-cyan hover:bg-accent-cyan/10 transition-all w-fit"
                   >
                     <span>pracup.co.in</span>
                     <ExternalLink className="h-3.5 w-3.5" />
@@ -109,17 +109,17 @@ export default function Experience() {
               </div>
 
               {/* Bullet Points */}
-              <ul className="mt-6 space-y-3">
+              <ul className="mt-5 sm:mt-6 space-y-3">
                 {job.bullets.map((bullet, bIdx) => (
-                  <li key={bIdx} className="flex items-start gap-3 text-sm text-muted leading-relaxed">
-                    <CheckCircle className="h-4 w-4 text-accent-purple shrink-0 mt-1" />
+                  <li key={bIdx} className="flex items-start gap-2.5 sm:gap-3 text-xs sm:text-sm text-muted leading-relaxed">
+                    <CheckCircle className="h-4 w-4 text-accent-purple shrink-0 mt-0.5" />
                     <span className="text-ivory/90">{bullet}</span>
                   </li>
                 ))}
               </ul>
 
               {/* Tech Tags */}
-              <div className="mt-6 flex flex-wrap gap-2 pt-4 border-t border-line">
+              <div className="mt-5 sm:mt-6 flex flex-wrap gap-2 pt-4 border-t border-line">
                 {job.tags.map((tag) => (
                   <span
                     key={tag}

@@ -405,7 +405,8 @@ export default function Hero3D() {
     // Responsive screen factor for model placement
     function getScreenMultiplier() {
       const w = window.innerWidth;
-      if (w < 768) return { posX: 0.3, scale: 0.0075, posZ: -0.6 }; // Mobile
+      if (w < 640) return { posX: 0.15, scale: 0.0065, posZ: -0.8 }; // Phone / Mobile
+      if (w < 768) return { posX: 0.3, scale: 0.0075, posZ: -0.6 };  // Large Phone
       if (w < 1024) return { posX: 0.55, scale: 0.0088, posZ: -0.3 }; // Tablet
       return { posX: 1.0, scale: 0.01, posZ: 0 };                    // Desktop
     }

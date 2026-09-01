@@ -103,7 +103,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-28 z-10">
+    <section id="skills" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 z-10">
       <Reveal>
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
@@ -113,7 +113,7 @@ export default function Skills() {
               </span>
               <div className="h-[1px] w-12 bg-line" />
             </div>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-ivory tracking-tight">
+            <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-ivory tracking-tight">
               Skills &amp; Tech Ecosystem
             </h2>
           </div>
@@ -149,19 +149,19 @@ export default function Skills() {
 
       {/* Visual Grid View */}
       {viewMode === "visual" && (
-        <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           {CATEGORIES.map((cat, idx) => {
             const Icon = cat.icon;
             return (
               <Reveal key={cat.id} delay={idx * 0.1} className="flex">
-                <div className="glass-panel-interactive w-full rounded-2xl p-6 sm:p-7 flex flex-col justify-between">
+                <div className="glass-panel-interactive w-full rounded-2xl p-5 sm:p-7 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2.5">
                         <div className="rounded-xl border border-line bg-panel-light p-2.5">
                           <Icon className={`h-5 w-5 ${cat.color}`} />
                         </div>
-                        <h3 className="font-mono text-lg font-bold text-ivory">
+                        <h3 className="font-mono text-base sm:text-lg font-bold text-ivory">
                           {cat.title}
                         </h3>
                       </div>
@@ -170,18 +170,18 @@ export default function Skills() {
                       </span>
                     </div>
 
-                    <div className="mt-6 space-y-3.5">
+                    <div className="mt-5 sm:mt-6 space-y-3">
                       {cat.skills.map((skill) => (
-                        <div key={skill.name} className="rounded-xl border border-line bg-panel-light/60 p-3.5">
+                        <div key={skill.name} className="rounded-xl border border-line bg-panel-light/60 p-3 sm:p-3.5">
                           <div className="flex items-center justify-between">
-                            <span className="font-mono text-sm font-semibold text-ivory">
+                            <span className="font-mono text-xs sm:text-sm font-semibold text-ivory">
                               {skill.name}
                             </span>
                             <span className="font-mono text-[10px] rounded bg-ink px-2 py-0.5 text-accent-purple border border-line">
                               {skill.level}
                             </span>
                           </div>
-                          <p className="mt-1 text-xs text-muted leading-normal">
+                          <p className="mt-1 text-[11px] sm:text-xs text-muted leading-normal">
                             {skill.desc}
                           </p>
                         </div>
@@ -197,8 +197,8 @@ export default function Skills() {
 
       {/* JSON Viewer Mode */}
       {viewMode === "json" && (
-        <Reveal delay={0.1} className="mt-10">
-          <div className="glass-panel rounded-2xl p-6 border border-line relative overflow-hidden">
+        <Reveal delay={0.1} className="mt-8 sm:mt-10">
+          <div className="glass-panel rounded-2xl p-4 sm:p-6 border border-line relative overflow-hidden">
             <div className="flex items-center justify-between border-b border-line pb-4">
               <div className="flex items-center gap-2 font-mono text-xs text-accent-cyan">
                 <Terminal className="h-4 w-4" />
@@ -223,7 +223,7 @@ export default function Skills() {
               </button>
             </div>
 
-            <pre className="mt-4 overflow-x-auto font-mono text-xs text-accent-purple/90 p-4 rounded-xl bg-ink/90 border border-line leading-relaxed">
+            <pre className="mt-4 overflow-x-auto font-mono text-[11px] sm:text-xs text-accent-purple/90 p-3.5 sm:p-4 rounded-xl bg-ink/90 border border-line leading-relaxed max-h-[450px]">
               {JSON.stringify(RAW_SKILLS_JSON, null, 2)}
             </pre>
           </div>

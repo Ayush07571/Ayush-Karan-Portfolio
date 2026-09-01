@@ -105,7 +105,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-28 z-10">
+    <section id="contact" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 z-10">
       <Reveal>
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent-cyan">
@@ -113,19 +113,19 @@ export default function Contact() {
           </span>
           <div className="h-[1px] flex-1 bg-line" />
         </div>
-        <h2 className="mt-3 text-4xl sm:text-5xl font-extrabold text-ivory tracking-tight">
+        <h2 className="mt-3 text-3xl sm:text-5xl font-extrabold text-ivory tracking-tight">
           Let&apos;s Build Something Extraordinary
         </h2>
       </Reveal>
 
-      <div className="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8">
+      <div className="mt-10 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
         {/* Left Column: Direct Links & Info (Span 5) */}
         <Reveal delay={0.1} className="lg:col-span-5 flex">
-          <div className="glass-panel-interactive w-full rounded-2xl p-7 border border-line flex flex-col justify-between">
+          <div className="glass-panel-interactive w-full rounded-2xl p-5 sm:p-7 border border-line flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3.5 sm:gap-4">
                 {/* Uploaded Profile Photo */}
-                <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-accent-purple/50 bg-panel-light shadow-glow">
+                <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 overflow-hidden rounded-2xl border border-accent-purple/50 bg-panel-light shadow-glow">
                   <img
                     src="/profile.jpg"
                     alt="Ayush Karan"
@@ -133,24 +133,24 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-mono text-lg font-bold text-ivory">Ayush Karan</h3>
+                  <h3 className="font-mono text-base sm:text-lg font-bold text-ivory">Ayush Karan</h3>
                   <p className="font-mono text-xs text-accent-cyan">
                     Full-Stack &amp; Aspiring Cloud Architect
                   </p>
                 </div>
               </div>
 
-              <p className="mt-6 text-sm text-muted leading-relaxed">
+              <p className="mt-5 text-xs sm:text-sm text-muted leading-relaxed">
                 Available for Software Development, Full-Stack engineering, Cloud Architecture, and n8n AI Agent automation workflows. Reach out via call, WhatsApp, or email!
               </p>
 
               {/* Direct Quick Interactive Contact Cards */}
-              <div className="mt-6 space-y-3">
+              <div className="mt-5 sm:mt-6 space-y-3">
                 {/* Phone Card with Call & WhatsApp options */}
-                <div className="w-full rounded-xl border border-line bg-panel-light/70 p-3.5 font-mono text-xs text-ivory">
+                <div className="w-full rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-mono text-xs text-ivory">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 text-accent-amber" />
+                      <Phone className="h-4 w-4 text-accent-amber shrink-0" />
                       <span className="font-bold">+91 8873718596</span>
                     </div>
                     <button
@@ -167,10 +167,10 @@ export default function Contact() {
                       )}
                     </button>
                   </div>
-                  <div className="mt-2.5 flex items-center gap-2">
+                  <div className="mt-2.5 flex flex-col sm:flex-row items-center gap-2">
                     <a
                       href="tel:8873718596"
-                      className="flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-accent-amber/40 bg-accent-amber/15 py-2 font-mono text-xs font-semibold text-ivory hover:bg-accent-amber/30 transition-all"
+                      className="w-full sm:flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-accent-amber/40 bg-accent-amber/15 py-2 font-mono text-xs font-semibold text-ivory hover:bg-accent-amber/30 transition-all"
                       title="Call directly"
                     >
                       <Phone className="h-3.5 w-3.5 text-accent-amber" />
@@ -180,7 +180,7 @@ export default function Contact() {
                       href="https://wa.me/918873718596"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-accent-emerald/40 bg-accent-emerald/15 py-2 font-mono text-xs font-semibold text-ivory hover:bg-accent-emerald/30 transition-all"
+                      className="w-full sm:flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-accent-emerald/40 bg-accent-emerald/15 py-2 font-mono text-xs font-semibold text-ivory hover:bg-accent-emerald/30 transition-all"
                       title="Open WhatsApp chat"
                     >
                       <MessageSquare className="h-3.5 w-3.5 text-accent-emerald" />
@@ -190,10 +190,10 @@ export default function Contact() {
                 </div>
 
                 {/* Email Card */}
-                <div className="w-full flex items-center justify-between gap-2 rounded-xl border border-line bg-panel-light/70 p-3.5 font-mono text-xs text-ivory hover:border-accent-purple/50 transition-colors">
+                <div className="w-full flex items-center justify-between gap-2 rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-mono text-xs text-ivory hover:border-accent-purple/50 transition-colors">
                   <a
                     href="mailto:ayushkaran328@gmail.com"
-                    className="flex items-center gap-2.5 hover:text-accent-purple transition-colors flex-1 overflow-hidden text-ellipsis"
+                    className="flex items-center gap-2 sm:gap-2.5 hover:text-accent-purple transition-colors flex-1 overflow-hidden"
                     title="Click to open Email app"
                   >
                     <Mail className="h-4 w-4 text-accent-purple shrink-0" />
@@ -201,7 +201,7 @@ export default function Contact() {
                   </a>
                   <button
                     onClick={handleCopyEmail}
-                    className="flex items-center gap-1 rounded-lg border border-line bg-ink/60 px-2.5 py-1 text-muted hover:text-ivory hover:border-line-bright transition-colors shrink-0"
+                    className="flex items-center gap-1 rounded-lg border border-line bg-ink/60 px-2 py-1 text-muted hover:text-ivory hover:border-line-bright transition-colors shrink-0 text-[11px]"
                     title="Copy Email Address"
                   >
                     {emailCopied ? (
@@ -220,20 +220,20 @@ export default function Contact() {
                   href={RESUME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-between rounded-xl border border-line bg-panel-light/70 p-3.5 font-mono text-xs text-ivory hover:border-accent-cyan/50 transition-colors group"
+                  className="w-full flex items-center justify-between rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-mono text-xs text-ivory hover:border-accent-cyan/50 transition-colors group"
                 >
                   <div className="flex items-center gap-2.5">
-                    <FileText className="h-4 w-4 text-accent-cyan" />
+                    <FileText className="h-4 w-4 text-accent-cyan shrink-0" />
                     <span>View Resume (PDF)</span>
                   </div>
-                  <ExternalLink className="h-3.5 w-3.5 text-muted group-hover:text-ivory" />
+                  <ExternalLink className="h-3.5 w-3.5 text-muted group-hover:text-ivory shrink-0" />
                 </a>
               </div>
 
               {/* Social Channels */}
-              <div className="mt-8">
+              <div className="mt-6 sm:mt-8">
                 <p className="font-mono text-xs text-muted uppercase tracking-wider">Social Channels</p>
-                <div className="mt-3 flex gap-3 font-mono text-xs">
+                <div className="mt-3 flex flex-col sm:flex-row gap-2.5 sm:gap-3 font-mono text-xs">
                   <a
                     href="https://github.com/ayush07571"
                     target="_blank"
@@ -257,9 +257,9 @@ export default function Contact() {
             </div>
 
             {/* Time Clock */}
-            <div className="mt-8 pt-4 border-t border-line flex items-center justify-between font-mono text-xs text-muted">
+            <div className="mt-6 sm:mt-8 pt-4 border-t border-line flex items-center justify-between font-mono text-xs text-muted">
               <div className="flex items-center gap-1.5">
-                <Clock className="h-3.5 w-3.5 text-accent-purple" />
+                <Clock className="h-3.5 w-3.5 text-accent-purple shrink-0" />
                 <span>{timeString || "IST Time"}</span>
               </div>
             </div>
@@ -268,14 +268,14 @@ export default function Contact() {
 
         {/* Right Column: Interactive Form (Span 7) */}
         <Reveal delay={0.2} className="lg:col-span-7 flex">
-          <div className="glass-panel w-full rounded-2xl p-7 sm:p-8 border border-line shadow-glass flex flex-col justify-between">
+          <div className="glass-panel w-full rounded-2xl p-5 sm:p-8 border border-line shadow-glass flex flex-col justify-between">
             {formSubmitted ? (
-              <div className="my-auto text-center py-12">
+              <div className="my-auto text-center py-10 sm:py-12">
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-accent-emerald/20 text-accent-emerald border border-accent-emerald/40 shadow-glow-emerald">
                   <Check className="h-8 w-8" />
                 </div>
-                <h3 className="mt-4 text-2xl font-bold text-ivory">Message Transmitted!</h3>
-                <p className="mt-2 text-sm text-muted max-w-sm mx-auto">
+                <h3 className="mt-4 text-xl sm:text-2xl font-bold text-ivory">Message Transmitted!</h3>
+                <p className="mt-2 text-xs sm:text-sm text-muted max-w-sm mx-auto">
                   Thank you for reaching out, {formData.name}. Your message has been sent directly to <span className="text-accent-purple font-mono">ayushkaran328@gmail.com</span>!
                 </p>
                 <button
@@ -289,8 +289,8 @@ export default function Contact() {
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmitForm} className="space-y-5">
-                <h3 className="font-mono text-sm uppercase tracking-wider text-accent-purple font-semibold">
+              <form onSubmit={handleSubmitForm} className="space-y-4 sm:space-y-5">
+                <h3 className="font-mono text-xs sm:text-sm uppercase tracking-wider text-accent-purple font-semibold">
                   Send a Direct Message
                 </h3>
 
@@ -309,7 +309,7 @@ export default function Contact() {
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Alex Mercer"
-                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -321,7 +321,7 @@ export default function Contact() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="alex.mercer@techcorp.io"
-                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
+                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
                   />
                 </div>
 
@@ -333,14 +333,14 @@ export default function Contact() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Hi Ayush, we're building a web platform and want to integrate an n8n AI agent pipeline..."
-                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors resize-none"
+                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-6 py-3.5 font-mono text-sm font-semibold text-white shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-6 py-3.5 font-mono text-xs sm:text-sm font-semibold text-white shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50"
                 >
                   {loading ? (
                     <span className="flex items-center gap-2">
@@ -361,7 +361,7 @@ export default function Contact() {
       </div>
 
       {/* Footer Bar */}
-      <div className="mt-24 border-t border-line pt-8 flex flex-wrap items-center justify-between gap-4 font-mono text-xs text-muted">
+      <div className="mt-16 sm:mt-24 border-t border-line pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-muted text-center sm:text-left">
         <p>
           &copy; {new Date().getFullYear()} Ayush Karan. Built with Next.js 14, Three.js &amp; Tailwind CSS.
         </p>

@@ -51,12 +51,12 @@ export default function Nav({ onOpenTerminal }: NavProps) {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
-        scrolled ? "py-3" : "py-5"
+        scrolled ? "py-2.5 sm:py-3" : "py-3 sm:py-5"
       }`}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-3 sm:px-6">
         <div
-          className={`flex items-center justify-between rounded-full px-5 py-2.5 transition-all duration-300 ${
+          className={`flex items-center justify-between rounded-full px-4 sm:px-5 py-2 sm:py-2.5 transition-all duration-300 ${
             scrolled
               ? "border border-line bg-panel-solid/90 backdrop-blur-xl shadow-glass"
               : "border border-transparent bg-transparent"
@@ -65,7 +65,7 @@ export default function Nav({ onOpenTerminal }: NavProps) {
           {/* Logo */}
           <a
             href="#top"
-            className="group flex items-center gap-2 font-mono text-sm font-semibold tracking-tight text-ivory"
+            className="group flex items-center gap-2 font-mono text-xs sm:text-sm font-semibold tracking-tight text-ivory"
           >
             <span className="flex h-2 w-2 rounded-full bg-accent-emerald animate-pulse" />
             <span>ayush</span>
@@ -98,7 +98,7 @@ export default function Nav({ onOpenTerminal }: NavProps) {
           </nav>
 
           {/* Actions */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             {/* Terminal Launcher */}
             <button
               onClick={onOpenTerminal}
@@ -114,7 +114,7 @@ export default function Nav({ onOpenTerminal }: NavProps) {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-lg border border-accent-purple/40 bg-accent-purple/15 px-3 py-1.5 font-mono text-xs text-ivory hover:bg-accent-purple/25 hover:border-accent-purple transition-all"
+              className="flex items-center gap-1.5 rounded-lg border border-accent-purple/40 bg-accent-purple/15 px-2.5 sm:px-3 py-1.5 font-mono text-xs text-ivory hover:bg-accent-purple/25 hover:border-accent-purple transition-all"
             >
               <FileText className="h-3.5 w-3.5 text-accent-purple" />
               <span className="hidden sm:inline">Resume</span>
@@ -124,7 +124,7 @@ export default function Nav({ onOpenTerminal }: NavProps) {
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="flex h-8 w-8 items-center justify-center rounded-lg border border-line text-muted hover:text-ivory md:hidden"
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-line text-muted hover:text-ivory md:hidden touch-manipulation"
               aria-label="Toggle menu"
             >
               {mobileMenuOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -134,30 +134,43 @@ export default function Nav({ onOpenTerminal }: NavProps) {
 
         {/* Mobile Slide-Down Drawer */}
         {mobileMenuOpen && (
-          <div className="mt-2 rounded-2xl border border-line bg-panel-solid/95 p-6 backdrop-blur-2xl shadow-glass md:hidden">
-            <nav className="flex flex-col gap-4 font-mono text-sm">
+          <div className="mt-2 rounded-2xl border border-line bg-panel-solid/95 p-5 backdrop-blur-2xl shadow-glass md:hidden animate-fadeIn">
+            <nav className="flex flex-col gap-3 font-mono text-sm">
               {LINKS.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2 text-muted hover:text-ivory"
+                  className="flex items-center gap-2.5 py-1.5 text-muted hover:text-ivory transition-colors"
                 >
                   <span className="text-accent-purple">&gt;</span>
                   {l.label}
                 </a>
               ))}
-              <div className="mt-4 pt-4 border-t border-line flex flex-col gap-3">
+              <div className="mt-3 pt-3 border-t border-line flex flex-col gap-2.5">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenTerminal?.();
                   }}
-                  className="flex items-center gap-2 font-mono text-xs text-accent-cyan"
+                  className="flex items-center gap-2 rounded-xl border border-line bg-panel-light/60 p-2.5 font-mono text-xs text-accent-cyan hover:border-accent-cyan transition-colors text-left"
                 >
-                  <Terminal className="h-4 w-4" />
-                  <span>AK-OS Terminal Console</span>
+                  <Terminal className="h-4 w-4 shrink-0" />
+                  <span>Launch AK-OS Console</span>
                 </button>
+                <a
+                  href={RESUME_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-between rounded-xl border border-accent-purple/40 bg-accent-purple/15 p-2.5 font-mono text-xs text-ivory hover:bg-accent-purple/25 transition-colors"
+                >
+                  <div className="flex items-center gap-2">
+                    <FileText className="h-4 w-4 text-accent-purple" />
+                    <span>View Resume (PDF)</span>
+                  </div>
+                  <ExternalLink className="h-3.5 w-3.5 text-muted" />
+                </a>
               </div>
             </nav>
           </div>

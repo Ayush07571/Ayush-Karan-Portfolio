@@ -90,7 +90,7 @@ export default function Projects() {
   const [activeDiagramStep, setActiveDiagramStep] = useState(1);
 
   return (
-    <section id="projects" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-28 z-10">
+    <section id="projects" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 z-10">
       <Reveal>
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
@@ -100,7 +100,7 @@ export default function Projects() {
               </span>
               <div className="h-[1px] w-12 bg-line" />
             </div>
-            <h2 className="mt-3 text-3xl sm:text-4xl font-extrabold text-ivory tracking-tight">
+            <h2 className="mt-3 text-2xl sm:text-4xl font-extrabold text-ivory tracking-tight">
               Selected Work &amp; AI Systems
             </h2>
           </div>
@@ -108,15 +108,15 @@ export default function Projects() {
       </Reveal>
 
       {/* Projects Cards Grid (Directly Rendered) */}
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
         {PROJECTS.map((project, idx) => (
           <Reveal key={project.id} delay={idx * 0.1} className="flex">
             <div
-              className={`glass-panel-interactive w-full rounded-2xl p-7 flex flex-col justify-between relative overflow-hidden group cursor-pointer border border-line ${project.accentBorder}`}
+              className={`glass-panel-interactive w-full rounded-2xl p-5 sm:p-7 flex flex-col justify-between relative overflow-hidden group cursor-pointer border border-line ${project.accentBorder}`}
               onClick={() => setSelectedProject(project)}
             >
               <div>
-                <div className="flex items-center justify-between gap-2">
+                <div className="flex items-center justify-between gap-2 flex-wrap">
                   <span className={`font-mono text-[11px] rounded-full border px-3 py-0.5 font-medium ${project.accentBadge}`}>
                     {project.metrics}
                   </span>
@@ -148,17 +148,17 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <h3 className="mt-5 text-xl sm:text-2xl font-bold text-ivory group-hover:text-accent-purple transition-colors">
+                <h3 className="mt-4 sm:mt-5 text-lg sm:text-2xl font-bold text-ivory group-hover:text-accent-purple transition-colors">
                   {project.name}
                 </h3>
-                <p className="mt-3 text-sm text-muted leading-relaxed">
+                <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-muted leading-relaxed">
                   {project.shortDesc}
                 </p>
 
                 {project.hasDiagram && (
-                  <div className="mt-4 rounded-xl border border-accent-cyan/30 bg-accent-cyan/5 p-3 flex items-center justify-between">
+                  <div className="mt-4 rounded-xl border border-accent-cyan/30 bg-accent-cyan/5 p-3 flex items-center justify-between flex-wrap gap-2">
                     <div className="flex items-center gap-2 text-xs text-accent-cyan font-mono">
-                      <Workflow className="h-4 w-4" />
+                      <Workflow className="h-4 w-4 shrink-0" />
                       <span>Smart Pipeline Flow Architecture Included</span>
                     </div>
                     <span className="font-mono text-[10px] text-ivory underline">View Flow &rarr;</span>
@@ -167,7 +167,7 @@ export default function Projects() {
               </div>
 
               <div>
-                <div className="mt-6 flex flex-wrap gap-2 pt-4 border-t border-line">
+                <div className="mt-5 sm:mt-6 flex flex-wrap gap-2 pt-4 border-t border-line">
                   {project.tags.map((t) => (
                     <span
                       key={t}
@@ -178,7 +178,7 @@ export default function Projects() {
                   ))}
                 </div>
 
-                <div className="mt-5 flex items-center justify-between font-mono text-xs text-accent-purple font-medium group-hover:translate-x-1 transition-transform">
+                <div className="mt-4 sm:mt-5 flex items-center justify-between font-mono text-xs text-accent-purple font-medium group-hover:translate-x-1 transition-transform">
                   <span>View Project Details</span>
                   <ArrowRight className="h-4 w-4" />
                 </div>
@@ -189,20 +189,20 @@ export default function Projects() {
       </div>
 
       {/* Interactive Architecture Diagram Section for Multi-Agent Code Reviewer */}
-      <Reveal delay={0.3} className="mt-14">
-        <div className="glass-panel rounded-2xl p-7 border border-accent-cyan/30 relative overflow-hidden">
+      <Reveal delay={0.3} className="mt-10 sm:mt-14">
+        <div className="glass-panel rounded-2xl p-5 sm:p-7 border border-accent-cyan/30 relative overflow-hidden">
           <div className="flex items-center justify-between flex-wrap gap-3 border-b border-line pb-4">
             <div className="flex items-center gap-2">
-              <Bot className="h-5 w-5 text-accent-cyan" />
-              <h3 className="font-mono text-base font-bold text-ivory">
+              <Bot className="h-5 w-5 text-accent-cyan shrink-0" />
+              <h3 className="font-mono text-sm sm:text-base font-bold text-ivory">
                 Architecture Spotlight: Multi-Agent PR Review Flow (n8n)
               </h3>
             </div>
-            <span className="font-mono text-xs text-muted">Smart Sequential Refinement Loop</span>
+            <span className="font-mono text-[10px] sm:text-xs text-muted">Smart Sequential Refinement Loop</span>
           </div>
 
           {/* Interactive Steps Selector */}
-          <div className="mt-6 grid grid-cols-1 sm:grid-cols-4 gap-3">
+          <div className="mt-5 sm:mt-6 grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
             {[
               { step: 1, label: "3-Tier Routing", icon: GitPullRequest, title: "Dynamic Routing (If1 & If2)", color: "text-accent-purple" },
               { step: 2, label: "Initial Audit", icon: Code2, title: "Step-3.5-Flash Auditor", color: "text-accent-cyan" },
@@ -215,29 +215,29 @@ export default function Projects() {
                 <button
                   key={s.step}
                   onClick={() => setActiveDiagramStep(s.step)}
-                  className={`rounded-xl border p-4 text-left transition-all ${
+                  className={`rounded-xl border p-3 sm:p-4 text-left transition-all ${
                     isActive
                       ? "border-accent-cyan bg-accent-cyan/15 shadow-glow-cyan"
                       : "border-line bg-panel-light/50 hover:border-line-bright"
                   }`}
                 >
                   <div className="flex items-center justify-between">
-                    <span className="font-mono text-xs font-bold text-muted">STAGE 0{s.step}</span>
-                    <Icon className={`h-4 w-4 ${s.color}`} />
+                    <span className="font-mono text-[10px] sm:text-xs font-bold text-muted">STAGE 0{s.step}</span>
+                    <Icon className={`h-4 w-4 ${s.color} shrink-0`} />
                   </div>
-                  <p className="mt-2 font-mono text-sm font-semibold text-ivory">{s.label}</p>
+                  <p className="mt-1.5 sm:mt-2 font-mono text-xs sm:text-sm font-semibold text-ivory">{s.label}</p>
                 </button>
               );
             })}
           </div>
 
           {/* Step Detail Explanation Card */}
-          <div className="mt-5 rounded-xl border border-line bg-ink/70 p-5">
+          <div className="mt-4 sm:mt-5 rounded-xl border border-line bg-ink/70 p-4 sm:p-5">
             {activeDiagramStep === 1 && (
               <div>
-                <span className="font-mono text-xs text-accent-purple font-semibold uppercase">Stage 01: Dynamic 3-Tier Routing Logic (If1 &amp; If2 Nodes)</span>
-                <h4 className="mt-1 text-base font-bold text-ivory">Massive vs Standard vs Small PR Route</h4>
-                <p className="mt-2 text-sm text-muted leading-relaxed">
+                <span className="font-mono text-[10px] sm:text-xs text-accent-purple font-semibold uppercase">Stage 01: Dynamic 3-Tier Routing Logic (If1 &amp; If2 Nodes)</span>
+                <h4 className="mt-1 text-sm sm:text-base font-bold text-ivory">Massive vs Standard vs Small PR Route</h4>
+                <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed">
                   • <strong>Massive PRs (&gt;200 Changes):</strong> Flagged automatically for human intervention with <code className="text-accent-purple bg-ink px-1 py-0.5 rounded">waitingForHuman</code> label.<br />
                   • <strong>Standard PRs (21–200 Changes):</strong> Triggers full 4-Stage Sequential AI Loop.<br />
                   • <strong>Small PRs (&le;20 Changes):</strong> Routed to Fast-Track Auditor (Agent 4) for quick 1-sentence verification.
@@ -246,18 +246,18 @@ export default function Projects() {
             )}
             {activeDiagramStep === 2 && (
               <div>
-                <span className="font-mono text-xs text-accent-cyan font-semibold uppercase">Stage 02: Initial Auditor (AI Agent 1)</span>
-                <h4 className="mt-1 text-base font-bold text-ivory">Logic &amp; Security Audit (Step-3.5-Flash)</h4>
-                <p className="mt-2 text-sm text-muted leading-relaxed">
+                <span className="font-mono text-[10px] sm:text-xs text-accent-cyan font-semibold uppercase">Stage 02: Initial Auditor (AI Agent 1)</span>
+                <h4 className="mt-1 text-sm sm:text-base font-bold text-ivory">Logic &amp; Security Audit (Step-3.5-Flash)</h4>
+                <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed">
                   Performs the initial deep pass using Step-3.5-Flash to spot logic errors, boundary edge cases, syntax anti-patterns, and vulnerability risks across modified files.
                 </p>
               </div>
             )}
             {activeDiagramStep === 3 && (
               <div>
-                <span className="font-mono text-xs text-accent-emerald font-semibold uppercase">Stage 03: Critical Reviewer &amp; Synthesizer</span>
-                <h4 className="mt-1 text-base font-bold text-ivory">Technical Debt &amp; Polishing (Nvidia Nemotron)</h4>
-                <p className="mt-2 text-sm text-muted leading-relaxed">
+                <span className="font-mono text-[10px] sm:text-xs text-accent-emerald font-semibold uppercase">Stage 03: Critical Reviewer &amp; Synthesizer</span>
+                <h4 className="mt-1 text-sm sm:text-base font-bold text-ivory">Technical Debt &amp; Polishing (Nvidia Nemotron)</h4>
+                <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed">
                   • <strong>Critical Reviewer:</strong> Uses Nvidia Nemotron-3 to identify architectural gaps.<br />
                   • <strong>Synthesizer:</strong> Consolidates findings without redundancy.<br />
                   • <strong>Polishing Agent:</strong> Uses Nvidia Nemotron-12b to format a humanized, concise 3-4 line review.
@@ -266,9 +266,9 @@ export default function Projects() {
             )}
             {activeDiagramStep === 4 && (
               <div>
-                <span className="font-mono text-xs text-accent-amber font-semibold uppercase">Stage 04: Reliability &amp; Human-in-the-Loop Approval</span>
-                <h4 className="mt-1 text-base font-bold text-ivory">Gmail Approval &bull; Universal Metadata</h4>
-                <p className="mt-2 text-sm text-muted leading-relaxed">
+                <span className="font-mono text-[10px] sm:text-xs text-accent-amber font-semibold uppercase">Stage 04: Reliability &amp; Human-in-the-Loop Approval</span>
+                <h4 className="mt-1 text-sm sm:text-base font-bold text-ivory">Gmail Approval &bull; Universal Metadata</h4>
+                <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed">
                   Before posting to GitHub, the workflow emails finalized suggestions via Gmail for manual <strong>Yes/No</strong> approval. Uses dynamic metadata expressions and safe-string diff cleaning for universal repository compatibility.
                 </p>
               </div>
@@ -280,29 +280,31 @@ export default function Projects() {
       {/* Project Detail Deep-Dive Modal Drawer */}
       {selectedProject && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/80 backdrop-blur-xl animate-fadeIn"
+          className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-ink/80 backdrop-blur-xl animate-fadeIn"
           onClick={() => setSelectedProject(null)}
         >
           <div
-            className="glass-panel w-full max-w-2xl rounded-2xl p-6 sm:p-8 border border-line shadow-glass relative max-h-[90vh] overflow-y-auto"
+            className="glass-panel w-full max-w-2xl rounded-2xl p-5 sm:p-8 border border-line shadow-glass relative max-h-[85vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setSelectedProject(null)}
-              className="absolute top-6 right-6 rounded-full border border-line bg-panel-light p-2 text-muted hover:text-ivory"
+              className="absolute top-4 sm:top-6 right-4 sm:right-6 rounded-full border border-line bg-panel-light p-2 text-muted hover:text-ivory"
             >
-              <X className="h-5 w-5" />
+              <X className="h-4 w-4 sm:h-5 sm:w-5" />
             </button>
 
-            <span className={`font-mono text-xs rounded-full border px-3 py-0.5 font-medium ${selectedProject.accentBadge}`}>
-              {selectedProject.metrics}
-            </span>
+            <div className="pr-10">
+              <span className={`font-mono text-xs rounded-full border px-3 py-0.5 font-medium ${selectedProject.accentBadge}`}>
+                {selectedProject.metrics}
+              </span>
 
-            <h3 className="mt-4 text-2xl sm:text-3xl font-extrabold text-ivory">
-              {selectedProject.name}
-            </h3>
+              <h3 className="mt-3 text-xl sm:text-3xl font-extrabold text-ivory">
+                {selectedProject.name}
+              </h3>
+            </div>
 
-            <p className="mt-4 text-sm text-ivory/90 leading-relaxed">
+            <p className="mt-4 text-xs sm:text-sm text-ivory/90 leading-relaxed">
               {selectedProject.fullDesc}
             </p>
 
@@ -312,7 +314,7 @@ export default function Projects() {
               </h4>
               <ul className="mt-3 space-y-2">
                 {selectedProject.keyFeatures.map((feat, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-2.5 text-sm text-muted">
+                  <li key={fIdx} className="flex items-start gap-2.5 text-xs sm:text-sm text-muted">
                     <CheckCircle2 className="h-4 w-4 text-accent-purple shrink-0 mt-0.5" />
                     <span>{feat}</span>
                   </li>
@@ -331,13 +333,13 @@ export default function Projects() {
               ))}
             </div>
 
-            <div className="mt-8 flex items-center justify-end gap-3">
+            <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center justify-end gap-3">
               {selectedProject.githubUrl && (
                 <a
                   href={selectedProject.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl border border-line bg-panel-light px-4 py-2.5 font-mono text-xs text-ivory hover:border-line-bright"
+                  className="flex items-center justify-center gap-2 rounded-xl border border-line bg-panel-light px-4 py-2.5 font-mono text-xs text-ivory hover:border-line-bright"
                 >
                   <GithubIcon className="h-4 w-4" />
                   <span>GitHub Repo</span>
@@ -348,7 +350,7 @@ export default function Projects() {
                   href={selectedProject.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-5 py-2.5 font-mono text-xs font-semibold text-white shadow-glow hover:scale-[1.02] transition-all"
+                  className="flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-5 py-2.5 font-mono text-xs font-semibold text-white shadow-glow hover:scale-[1.02] transition-all"
                 >
                   <span>Visit Live App</span>
                   <ExternalLink className="h-4 w-4" />

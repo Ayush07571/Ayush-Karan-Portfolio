@@ -178,17 +178,17 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-ink/80 backdrop-blur-xl animate-fadeIn"
+      className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-ink/80 backdrop-blur-xl animate-fadeIn"
       onClick={onClose}
     >
       <div
-        className="glass-panel w-full max-w-2xl rounded-2xl border border-line shadow-glass overflow-hidden flex flex-col h-[520px]"
+        className="glass-panel w-full max-w-2xl rounded-2xl border border-line shadow-glass overflow-hidden flex flex-col h-[82vh] max-h-[520px]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Terminal Header */}
-        <div className="flex items-center justify-between border-b border-line px-5 py-3 bg-panel-solid/90">
+        <div className="flex items-center justify-between border-b border-line px-4 sm:px-5 py-3 bg-panel-solid/90">
           <div className="flex items-center gap-2">
-            <TerminalIcon className="h-4 w-4 text-accent-purple" />
+            <TerminalIcon className="h-4 w-4 text-accent-purple shrink-0" />
             <span className="font-mono text-xs font-bold text-ivory">AK-OS Console</span>
           </div>
 
@@ -201,7 +201,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         </div>
 
         {/* Quick Action Chips */}
-        <div className="flex items-center gap-2 overflow-x-auto p-3 border-b border-line bg-ink/50 no-scrollbar font-mono text-[11px]">
+        <div className="flex items-center gap-2 overflow-x-auto p-2.5 sm:p-3 border-b border-line bg-ink/50 no-scrollbar font-mono text-[11px]">
           {["help", "bio", "experience", "skills", "projects", "contact", "phone", "resume", "hire", "clear"].map((c) => (
             <button
               key={c}
@@ -214,7 +214,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         </div>
 
         {/* Terminal Output Log */}
-        <div className="flex-1 overflow-y-auto p-5 font-mono space-y-4 bg-ink/90">
+        <div className="flex-1 overflow-y-auto p-4 sm:p-5 font-mono space-y-4 bg-ink/90">
           {history.map((h, i) => (
             <div key={i} className="space-y-1.5">
               <div className="flex items-center gap-2 text-xs">
@@ -222,14 +222,14 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
                 <span className="text-muted">:~$</span>
                 <span className="text-ivory">{h.cmd}</span>
               </div>
-              <div className="pl-4 border-l border-line/40">{h.output}</div>
+              <div className="pl-3 sm:pl-4 border-l border-line/40">{h.output}</div>
             </div>
           ))}
           <div ref={endRef} />
         </div>
 
         {/* Input Prompt Form */}
-        <form onSubmit={handleFormSubmit} className="flex items-center border-t border-line bg-panel-solid px-4 py-3">
+        <form onSubmit={handleFormSubmit} className="flex items-center border-t border-line bg-panel-solid px-3.5 sm:px-4 py-2.5 sm:py-3">
           <span className="font-mono text-xs text-accent-purple font-bold mr-2">&gt;</span>
           <input
             ref={inputRef}
@@ -237,9 +237,9 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type command ('help', 'bio', 'experience', 'skills')..."
-            className="flex-1 bg-transparent font-mono text-xs text-ivory focus:outline-none placeholder:text-muted-dark"
+            className="flex-1 bg-transparent font-mono text-base sm:text-xs text-ivory focus:outline-none placeholder:text-muted-dark"
           />
-          <button type="submit" className="text-muted hover:text-accent-cyan">
+          <button type="submit" className="text-muted hover:text-accent-cyan p-1">
             <CornerDownLeft className="h-4 w-4" />
           </button>
         </form>

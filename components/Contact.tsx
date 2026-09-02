@@ -361,18 +361,34 @@ export default function Contact() {
       </div>
 
       {/* Footer Bar */}
-      <div className="mt-16 sm:mt-24 border-t border-line pt-6 sm:pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-muted text-center sm:text-left">
-        <p>
-          &copy; {new Date().getFullYear()} Ayush Karan. Built with Next.js 14, Three.js &amp; Tailwind CSS.
-        </p>
+      <div className="mt-16 sm:mt-24 border-t border-line pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-muted">
+        <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
+          <p className="text-ivory font-semibold">
+            &copy; {new Date().getFullYear()} Ayush Karan
+          </p>
+          <span className="hidden sm:inline text-line">•</span>
+          <p className="text-muted">
+            Crafting high-performance web systems, cloud architecture &amp; AI automations
+          </p>
+        </div>
 
-        <button
-          onClick={scrollToTop}
-          className="flex items-center gap-1.5 rounded-lg border border-line bg-panel px-3 py-1.5 text-muted hover:text-ivory hover:border-accent-purple/50 transition-all"
-        >
-          <span>Back to top</span>
-          <ArrowUp className="h-3.5 w-3.5" />
-        </button>
+        <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex items-center gap-2 rounded-full border border-accent-emerald/30 bg-accent-emerald/10 px-3 py-1 text-[11px] text-accent-emerald">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-emerald" />
+            </span>
+            <span>Available for Opportunities</span>
+          </div>
+
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 rounded-lg border border-line bg-panel-light/70 px-3 py-1.5 text-muted hover:text-ivory hover:border-accent-purple/50 transition-all"
+          >
+            <span>Back to top</span>
+            <ArrowUp className="h-3.5 w-3.5" />
+          </button>
+        </div>
       </div>
     </section>
   );

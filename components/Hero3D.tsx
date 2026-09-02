@@ -105,10 +105,7 @@ export default function Hero3D() {
   const [displayedProgress, setDisplayedProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [isFadingOut, setIsFadingOut] = useState(false);
-  const [flashColor, setFlashColor] = useState<string | null>(null);
-
   const targetProgressRef = useRef(0);
-  const activeSectionIdxRef = useRef(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -508,16 +505,6 @@ export default function Hero3D() {
         );
 
         const activeBeat = t < 0.5 ? cur : nxt;
-        const activeIdx = t < 0.5 ? idx : Math.min(idx + 1, maxIdx);
-
-        // IMPROVEMENT 4: Trigger section transition flash on pose/section change
-        if (activeIdx !== activeSectionIdxRef.current) {
-          activeSectionIdxRef.current = activeIdx;
-          const hexStr = "#" + activeBeat.accent.toString(16).padStart(6, "0");
-          setFlashColor(hexStr);
-          setTimeout(() => setFlashColor(null), 300);
-        }
-
         transitionToClip(activeBeat.clip);
         rimTarget.setHex(activeBeat.accent);
       },
@@ -664,17 +651,6 @@ export default function Hero3D() {
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <canvas ref={canvasRef} className="w-full h-full block" />
       </div>
-
-      {/* IMPROVEMENT 4: Section Transition Cinematic Color Flash Overlay */}
-      {flashColor && (
-        <div
-          className="fixed inset-0 pointer-events-none z-30 transition-opacity duration-300 ease-out"
-          style={{
-            backgroundColor: flashColor,
-            opacity: 0.15,
-          }}
-        />
-      )}
 
       {/* BUG 1: Smooth Lerp Loading Overlay with 400ms Pause & 0.6s Fade Out */}
       {!isLoaded && (

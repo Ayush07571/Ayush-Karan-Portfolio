@@ -6,6 +6,7 @@ const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const mono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://ayush-karan-portfolio-eta.vercel.app"),
   title: "Ayush Karan — Full-Stack & Agentic AI Engineer",
   description:
     "Portfolio of Ayush Karan, Full-Stack Software Developer & AI Engineer at VIT Bhopal. Intern at Datatrack & Quantumard. Specialist in Next.js 14, React, Three.js, and n8n Agent Orchestration.",
@@ -21,11 +22,34 @@ export const metadata: Metadata = {
     "EvolVIT Founder",
     "Three.js Portfolio",
   ],
+  icons: {
+    icon: [
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/icon.svg",
+    apple: "/icon.svg",
+  },
   openGraph: {
     title: "Ayush Karan — Full-Stack & Agentic AI Engineer",
     description:
       "Full-stack engineer building production Next.js applications, 3D web experiences, and multi-agent AI workflows.",
+    url: "https://ayush-karan-portfolio-eta.vercel.app",
+    siteName: "Ayush Karan Portfolio",
+    images: [
+      {
+        url: "/profile.jpg",
+        width: 800,
+        height: 800,
+        alt: "Ayush Karan — Full-Stack & AI Engineer",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ayush Karan — Full-Stack & Agentic AI Engineer",
+    description: "Full-stack engineer building production Next.js apps, 3D web experiences, and multi-agent AI workflows.",
+    images: ["/profile.jpg"],
   },
 };
 

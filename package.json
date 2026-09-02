@@ -11,6 +11,8 @@
   "dependencies": {
     "@types/canvas-confetti": "^1.9.0",
     "@types/nodemailer": "^8.0.1",
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.0.0",
     "canvas-confetti": "^1.9.4",
     "framer-motion": "^13.1.1",
     "gsap": "^3.12.5",

@@ -16,7 +16,7 @@ const LINKS = [
   { href: "#contact", label: "contact" },
 ];
 
-const RESUME_URL = "https://drive.google.com/file/d/1S03oJ8WHTO-VegBR1_LJT9DTE_zNIuEw/view?usp=sharing";
+const RESUME_URL = "/resume.pdf";
 
 export default function Nav({ onOpenTerminal }: NavProps) {
   const [scrolled, setScrolled] = useState(false);

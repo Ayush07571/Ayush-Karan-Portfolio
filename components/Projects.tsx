@@ -13,6 +13,7 @@ import {
   X,
   CheckCircle2,
   GitPullRequest,
+  Lock,
 } from "lucide-react";
 
 function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
@@ -29,6 +30,8 @@ interface Project {
   category: "ai" | "web";
   liveUrl?: string;
   githubUrl?: string;
+  displayUrl?: string;
+  image?: string;
   metrics: string;
   tags: string[];
   shortDesc: string;
@@ -41,10 +44,34 @@ interface Project {
 
 const PROJECTS: Project[] = [
   {
+    id: "susi-pizza",
+    name: "Susi's Universe 🍕 — 3D Pizza Experience",
+    category: "web",
+    liveUrl: "https://susi-pizza-landing-page.vercel.app/",
+    displayUrl: "susi-pizza-landing-page.vercel.app",
+    image: "/susi.png",
+    metrics: "Cinematic 3D Scroll • Live in Production",
+    tags: ["Next.js 14", "React Three Fiber", "Three.js", "GSAP", "Lenis", "Framer Motion", "Zustand"],
+    shortDesc:
+      "A cinematic, scroll-driven 3D web application engineered for Susi Pizza in Ranchi, featuring R3F GLSL shaders, GSAP ScrollTrigger, and Lenis smooth scroll.",
+    fullDesc:
+      "Susi Pizza is an immersive web application designed for Ranchi's signature wood-fired pizza brand. Built with Next.js 14 and React Three Fiber, it features custom GLSL cheese drip shaders, interactive topping customizers, smooth Lenis scrolling, and responsive 2D/3D performance fallbacks.",
+    keyFeatures: [
+      "Custom React Three Fiber 3D scene & GLSL cheese drip texture shader",
+      "GSAP ScrollTrigger & Lenis smooth scroll integration for cinematic section transitions",
+      "Responsive device detection hook toggling 3D canvas on Desktop/Tablet & 2D fallback on Mobile",
+      "Dynamic menu and store outlet showcase optimized for Vercel edge deployment",
+    ],
+    accentBorder: "hover:border-accent-amber/60",
+    accentBadge: "bg-accent-amber/20 text-accent-amber border-accent-amber/30",
+  },
+  {
     id: "multi-agent-reviewer",
     name: "Multi-Agent Sequential PR Code Reviewer (n8n)",
     category: "ai",
     githubUrl: "https://github.com/Ayush07571/Multi-Agent-Github-Code-Reviewer",
+    displayUrl: "n8n.workflow/multi-agent-reviewer",
+    image: "/n8n.png",
     metrics: "3-Tier Routing &bull; 4-Stage AI Refinement Loop",
     tags: ["n8n", "OpenRouter", "Step-3.5-Flash", "Nvidia Nemotron", "GitHub API", "Gmail Approval"],
     shortDesc:
@@ -68,6 +95,8 @@ const PROJECTS: Project[] = [
     name: "AI Worksheet Generator (Pracup)",
     category: "ai",
     liveUrl: "https://pracup.co.in",
+    displayUrl: "pracup.co.in",
+    image: "/pracup.png",
     metrics: "Production-ready • In Active Use",
     tags: ["Next.js 14", "AI Generation", "Tailwind", "Vercel", "MongoDB"],
     shortDesc:
@@ -108,11 +137,11 @@ export default function Projects() {
       </Reveal>
 
       {/* Projects Cards Grid (Directly Rendered) */}
-      <div className="mt-8 sm:mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-3 gap-6">
         {PROJECTS.map((project, idx) => (
           <Reveal key={project.id} delay={idx * 0.1} className="flex">
             <div
-              className={`glass-panel-interactive w-full rounded-2xl p-5 sm:p-7 flex flex-col justify-between relative overflow-hidden group cursor-pointer border border-line ${project.accentBorder}`}
+              className={`glass-panel-interactive w-full rounded-2xl p-4 sm:p-6 flex flex-col justify-between relative overflow-hidden group cursor-pointer border border-line ${project.accentBorder}`}
               onClick={() => setSelectedProject(project)}
             >
               <div>
@@ -148,12 +177,37 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <h3 className="mt-4 sm:mt-5 text-lg sm:text-2xl font-bold text-ivory group-hover:text-accent-purple transition-colors">
+                <h3 className="mt-4 text-base sm:text-xl font-bold text-ivory group-hover:text-accent-purple transition-colors">
                   {project.name}
                 </h3>
-                <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm text-muted leading-relaxed">
+                <p className="mt-2 text-xs sm:text-sm text-muted leading-relaxed">
                   {project.shortDesc}
                 </p>
+
+                {/* Browser Window Frame with Screenshot */}
+                {project.image && (
+                  <div className="mt-4 overflow-hidden rounded-xl border border-line bg-ink/90 shadow-glass group/frame">
+                    <div className="flex items-center justify-between border-b border-line bg-panel-solid px-3 py-1.5 font-mono text-xs">
+                      <div className="flex items-center gap-1.5">
+                        <span className="h-2.5 w-2.5 rounded-full bg-red-500/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-yellow-500/80" />
+                        <span className="h-2.5 w-2.5 rounded-full bg-green-500/80" />
+                      </div>
+                      <div className="flex items-center gap-1.5 rounded-md border border-line bg-ink px-2.5 py-0.5 text-[10px] text-muted max-w-[180px] w-full justify-center truncate">
+                        <Lock className="h-3 w-3 text-accent-emerald shrink-0" />
+                        <span className="truncate">{project.displayUrl || "https://dev.local"}</span>
+                      </div>
+                      <div className="w-8" />
+                    </div>
+                    <div className="relative aspect-video w-full overflow-hidden bg-ink/80">
+                      <img
+                        src={project.image}
+                        alt={project.name}
+                        className="h-full w-full object-cover object-top group-hover/frame:scale-105 transition-transform duration-500"
+                      />
+                    </div>
+                  </div>
+                )}
 
                 {project.hasDiagram && (
                   <div className="mt-4 rounded-xl border border-accent-cyan/30 bg-accent-cyan/5 p-3 flex items-center justify-between flex-wrap gap-2">
@@ -167,18 +221,18 @@ export default function Projects() {
               </div>
 
               <div>
-                <div className="mt-5 sm:mt-6 flex flex-wrap gap-2 pt-4 border-t border-line">
+                <div className="mt-5 flex flex-wrap gap-1.5 pt-4 border-t border-line">
                   {project.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-lg border border-line bg-ink/60 px-2.5 py-1 font-mono text-[11px] text-muted"
+                      className="rounded-lg border border-line bg-ink/60 px-2 py-0.5 font-mono text-[10px] sm:text-[11px] text-muted"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-4 sm:mt-5 flex items-center justify-between font-mono text-xs text-accent-purple font-medium group-hover:translate-x-1 transition-transform">
+                <div className="mt-4 flex items-center justify-between font-mono text-xs text-accent-purple font-medium group-hover:translate-x-1 transition-transform">
                   <span>View Project Details</span>
                   <ArrowRight className="h-4 w-4" />
                 </div>
@@ -187,6 +241,7 @@ export default function Projects() {
           </Reveal>
         ))}
       </div>
+
 
       {/* Interactive Architecture Diagram Section for Multi-Agent Code Reviewer */}
       <Reveal delay={0.3} className="mt-10 sm:mt-14">

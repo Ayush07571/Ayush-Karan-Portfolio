@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import confetti from "canvas-confetti";
 import { X, Terminal as TerminalIcon, CornerDownLeft } from "lucide-react";
 
-const RESUME_URL = "https://drive.google.com/file/d/1S03oJ8WHTO-VegBR1_LJT9DTE_zNIuEw/view?usp=sharing";
+const RESUME_URL = "/resume.pdf";
 
 interface TerminalModalProps {
   isOpen: boolean;
@@ -59,7 +59,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
             <p><span className="text-accent-cyan font-mono font-bold">skills</span> — Full tech stack overview</p>
             <p><span className="text-accent-emerald font-mono">projects</span> — Key projects &amp; n8n AI systems</p>
             <p><span className="text-accent-amber font-mono font-bold">contact</span> / <span className="text-accent-amber font-mono">phone</span> — Phone (+91 8873718596) &amp; Email</p>
-            <p><span className="text-accent-coral font-mono">resume</span> — Open Google Drive resume</p>
+            <p><span className="text-accent-coral font-mono">resume</span> — Open Resume (PDF)</p>
             <p><span className="text-accent-purple font-mono font-bold">hire</span> — Recruit Ayush Karan</p>
             <p><span className="text-muted font-mono font-bold">clear</span> — Clear terminal screen</p>
           </div>
@@ -135,7 +135,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
       case "resume":
         window.open(RESUME_URL, "_blank");
         response = (
-          <p className="text-xs text-accent-cyan">Opening Google Drive resume in new tab...</p>
+          <p className="text-xs text-accent-cyan">Opening Resume PDF in new tab...</p>
         );
         break;
 

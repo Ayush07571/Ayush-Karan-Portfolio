@@ -39,7 +39,7 @@ export default function About() {
               </p>
 
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-muted leading-relaxed">
-                With completed full-stack engineering internships at Datatrack ([pracup.co.in](https://pracup.co.in)) and Quantumard,
+                With completed full-stack engineering internships at Datatrack (<a href="https://pracup.co.in" target="_blank" rel="noopener noreferrer" className="text-accent-cyan underline hover:text-accent-purple transition-colors font-medium">pracup.co.in</a>) and Quantumard,
                 I build cloud-native web applications, distributed system architectures, custom n8n automation pipelines, and multi-agent AI review systems.
               </p>
             </div>
@@ -70,7 +70,7 @@ export default function About() {
         {/* Card 2: Profile Photo Card (Span 4) */}
         <Reveal delay={0.14} className="md:col-span-4 flex">
           <div className="glass-panel-interactive w-full rounded-2xl p-5 sm:p-6 flex flex-col items-center justify-center text-center relative overflow-hidden group">
-            <div className="relative h-28 w-28 overflow-hidden rounded-2xl border-2 border-accent-purple/50 bg-panel-light shadow-glow group-hover:scale-105 transition-transform duration-300">
+            <div className="relative h-28 w-28 overflow-hidden rounded-full border-2 border-accent-purple/70 bg-panel-light shadow-glow animate-border-glow group-hover:scale-105 transition-transform duration-300">
               <img
                 src="/profile.jpg"
                 alt="Ayush Karan"

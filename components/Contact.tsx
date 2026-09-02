@@ -5,7 +5,7 @@ import confetti from "canvas-confetti";
 import Reveal from "./Reveal";
 import { Mail, Copy, Check, Send, ArrowUp, Clock, FileText, ExternalLink, Phone, MessageSquare, AlertCircle } from "lucide-react";
 
-const RESUME_URL = "https://drive.google.com/file/d/1S03oJ8WHTO-VegBR1_LJT9DTE_zNIuEw/view?usp=sharing";
+const RESUME_URL = "/resume.pdf";
 
 function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (

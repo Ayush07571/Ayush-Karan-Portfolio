@@ -94,10 +94,21 @@ function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
 }
 
+function getStageMessage(p: number) {
+  if (p <= 35) return "Loading environment...";
+  if (p <= 75) return "Loading 3D avatar...";
+  return "Initializing scene...";
+}
+
 export default function Hero3D() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const [loadProgress, setLoadProgress] = useState(0);
+  const [displayedProgress, setDisplayedProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false);
+  const [flashColor, setFlashColor] = useState<string | null>(null);
+
+  const targetProgressRef = useRef(0);
+  const activeSectionIdxRef = useRef(0);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -107,19 +118,22 @@ export default function Hero3D() {
 
     let W = window.innerWidth;
     let H = window.innerHeight;
+    const isMobile = W < 768;
 
-    // Renderer
+    // BUG 5: Renderer Pixel Ratio & Shadow Map Mobile Optimizations
     const renderer = new THREE.WebGLRenderer({
       canvas,
-      antialias: true,
+      antialias: !isMobile,
       alpha: true,
       powerPreference: "high-performance",
     });
     renderer.setSize(W, H);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x050508, 1);
-    renderer.shadowMap.enabled = true;
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.enabled = !isMobile;
+    if (!isMobile) {
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    }
 
     // Scene & Fog
     const scene = new THREE.Scene();
@@ -129,9 +143,9 @@ export default function Hero3D() {
     const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 100);
     camera.position.set(...SECTION_TRANSFORMS[0].camPos);
 
-    // Dynamic Starfield Particles
+    // BUG 5: Dynamic Starfield Particles (60% reduction on mobile: 2000 -> 800)
+    const starCount = isMobile ? 800 : 2000;
     const starGeo = new THREE.BufferGeometry();
-    const starCount = 2000;
     const starPos = new Float32Array(starCount * 3);
     for (let i = 0; i < starCount * 3; i += 3) {
       starPos[i] = (Math.random() - 0.5) * 55;
@@ -160,7 +174,7 @@ export default function Hero3D() {
     const floor = new THREE.Mesh(floorGeo, floorMat);
     floor.rotation.x = -Math.PI / 2;
     floor.position.y = -0.01;
-    floor.receiveShadow = true;
+    floor.receiveShadow = !isMobile;
     scene.add(floor);
 
     // Circular Floor Ring Glow
@@ -181,7 +195,7 @@ export default function Hero3D() {
     // ==========================================
     const workstationGroup = new THREE.Group();
 
-    // 1. Cyber Glass Desk Surface (Placed forward at z=0.38, y=0.56)
+    // 1. Cyber Glass Desk Surface
     const deskGeo = new THREE.BoxGeometry(0.85, 0.015, 0.36);
     const deskMat = new THREE.MeshStandardMaterial({
       color: 0x0a0a16,
@@ -202,7 +216,7 @@ export default function Hero3D() {
     const deskEdges = new THREE.LineSegments(new THREE.EdgesGeometry(deskGeo), deskEdgesMat);
     deskMesh.add(deskEdges);
 
-    // Desk Metal Legs (Extending down to floor y=0)
+    // Desk Metal Legs
     const legGeo = new THREE.CylinderGeometry(0.01, 0.01, 0.56, 16);
     const legMat = new THREE.MeshStandardMaterial({
       color: 0x141426,
@@ -218,7 +232,7 @@ export default function Hero3D() {
     legRight.position.set(0.36, 0.28, 0.38);
     workstationGroup.add(legRight);
 
-    // 2. 3D Mechanical Cyber Keyboard Chassis — Resting directly under typing hands
+    // 2. 3D Mechanical Cyber Keyboard Chassis
     const kbChassisGeo = new THREE.BoxGeometry(0.48, 0.022, 0.20);
     const kbChassisMat = new THREE.MeshStandardMaterial({
       color: 0x121224,
@@ -238,7 +252,7 @@ export default function Hero3D() {
     const kbEdges = new THREE.LineSegments(new THREE.EdgesGeometry(kbChassisGeo), kbEdgesMat);
     kbChassis.add(kbEdges);
 
-    // 3. Backlit Glowing Keycaps Surface (Directly under fingers at y=0.59, z=0.38)
+    // 3. Backlit Glowing Keycaps Surface
     const keyGeo = new THREE.PlaneGeometry(0.44, 0.16);
     const keyMat = new THREE.MeshStandardMaterial({
       color: 0x06b6d4,
@@ -264,10 +278,12 @@ export default function Hero3D() {
 
     const keyLight = new THREE.DirectionalLight(0xffffff, 1.5);
     keyLight.position.set(2, 4, 3);
-    keyLight.castShadow = true;
-    keyLight.shadow.mapSize.width = 1024;
-    keyLight.shadow.mapSize.height = 1024;
-    keyLight.shadow.bias = -0.0005;
+    keyLight.castShadow = !isMobile;
+    if (!isMobile) {
+      keyLight.shadow.mapSize.width = 1024;
+      keyLight.shadow.mapSize.height = 1024;
+      keyLight.shadow.bias = -0.0005;
+    }
     scene.add(keyLight);
 
     const fillLight = new THREE.DirectionalLight(0x06b6d4, 0.65);
@@ -306,17 +322,54 @@ export default function Hero3D() {
       }
     }
 
+    // BUG 1: Lerp-Based Smooth Loader Progress Loop
+    let progressTimer: NodeJS.Timeout;
+    let fadeTimer: NodeJS.Timeout;
+    let isUnmounted = false;
+
     // Loading Manager
     const manager = new THREE.LoadingManager();
     manager.onProgress = (_, loaded, total) => {
       const pct = Math.round((loaded / total) * 100);
-      setLoadProgress(pct);
+      targetProgressRef.current = Math.min(pct, 95);
     };
 
     manager.onLoad = () => {
-      setIsLoaded(true);
+      targetProgressRef.current = 100;
       if (actions.idle) actions.idle.play();
+
+      // BUG 2 FIX: Trigger ScrollTrigger position refresh immediately after load
+      setTimeout(() => {
+        ScrollTrigger.refresh();
+        pageST.update();
+      }, 150);
     };
+
+    // Smooth Lerp animation loop for displayedProgress
+    let lerpAnimId: number;
+    const updateProgressLerp = () => {
+      setDisplayedProgress((prev) => {
+        const target = targetProgressRef.current;
+        const diff = target - prev;
+        if (Math.abs(diff) < 0.15) {
+          if (target === 100 && prev < 100) {
+            // Reached 100%! Hold 400ms so user sees completion, then fade out
+            progressTimer = setTimeout(() => {
+              if (!isUnmounted) {
+                setIsFadingOut(true);
+                fadeTimer = setTimeout(() => {
+                  if (!isUnmounted) setIsLoaded(true);
+                }, 600);
+              }
+            }, 400);
+          }
+          return target;
+        }
+        return prev + diff * 0.08;
+      });
+      lerpAnimId = requestAnimationFrame(updateProgressLerp);
+    };
+    updateProgressLerp();
 
     const loader = new FBXLoader(manager);
 
@@ -332,8 +385,8 @@ export default function Hero3D() {
         idleObj.traverse((c) => {
           const mesh = c as THREE.Mesh;
           if (mesh.isMesh) {
-            mesh.castShadow = true;
-            mesh.receiveShadow = true;
+            mesh.castShadow = !isMobile;
+            mesh.receiveShadow = !isMobile;
           }
         });
         scene.add(idleObj);
@@ -373,7 +426,7 @@ export default function Hero3D() {
       undefined,
       (err) => {
         console.error("Error loading 3D avatar base model", err);
-        setIsLoaded(true);
+        targetProgressRef.current = 100;
       }
     );
 
@@ -455,10 +508,23 @@ export default function Hero3D() {
         );
 
         const activeBeat = t < 0.5 ? cur : nxt;
+        const activeIdx = t < 0.5 ? idx : Math.min(idx + 1, maxIdx);
+
+        // IMPROVEMENT 4: Trigger section transition flash on pose/section change
+        if (activeIdx !== activeSectionIdxRef.current) {
+          activeSectionIdxRef.current = activeIdx;
+          const hexStr = "#" + activeBeat.accent.toString(16).padStart(6, "0");
+          setFlashColor(hexStr);
+          setTimeout(() => setFlashColor(null), 300);
+        }
+
         transitionToClip(activeBeat.clip);
         rimTarget.setHex(activeBeat.accent);
       },
     });
+
+    // BUG 2 FIX: Force immediate scroll evaluation right after mounting pageST
+    pageST.update();
 
     // Render Loop
     const clock = new THREE.Clock();
@@ -496,7 +562,7 @@ export default function Hero3D() {
         // Responsive rotation + subtle mouse turn towards cursor
         modelRoot.rotation.y = currentModelRotY + mouseX * 0.35;
 
-        // Move floor reflection disc & ring along with model!
+        // Move floor reflection disc & ring along with model
         floor.position.x = currentModelPos.x;
         floor.position.z = currentModelPos.z;
         floorRing.position.x = currentModelPos.x;
@@ -554,7 +620,11 @@ export default function Hero3D() {
     window.addEventListener("resize", onResize);
 
     return () => {
+      isUnmounted = true;
       cancelAnimationFrame(animFrameId);
+      cancelAnimationFrame(lerpAnimId);
+      clearTimeout(progressTimer);
+      clearTimeout(fadeTimer);
       window.removeEventListener("mousemove", onMouseMove);
       window.removeEventListener("resize", onResize);
       pageST.kill();
@@ -586,27 +656,50 @@ export default function Hero3D() {
     };
   }, []);
 
+  const currentPct = Math.round(displayedProgress);
+
   return (
     <>
-      {/* Master Fixed 3D Canvas */}
+      {/* BUG 4: Master Fixed 3D Canvas with z-0 container */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
         <canvas ref={canvasRef} className="w-full h-full block" />
       </div>
 
-      {/* Loading Overlay */}
+      {/* IMPROVEMENT 4: Section Transition Cinematic Color Flash Overlay */}
+      {flashColor && (
+        <div
+          className="fixed inset-0 pointer-events-none z-30 transition-opacity duration-300 ease-out"
+          style={{
+            backgroundColor: flashColor,
+            opacity: 0.15,
+          }}
+        />
+      )}
+
+      {/* BUG 1: Smooth Lerp Loading Overlay with 400ms Pause & 0.6s Fade Out */}
       {!isLoaded && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink text-ivory transition-opacity duration-700">
+        <div
+          className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink text-ivory transition-opacity duration-600 ease-out ${
+            isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+          }`}
+        >
           <div className="relative flex items-center justify-center">
             <div className="h-20 w-20 rounded-full border-2 border-line border-t-accent-purple animate-spin" />
             <Move3d className="absolute h-8 w-8 text-accent-purple animate-pulse" />
           </div>
-          <p className="mt-6 font-mono text-sm tracking-wider text-muted">
-            INITIALIZING DYNAMIC 3D ENGINE... {loadProgress}%
+
+          <p className="mt-6 font-mono text-sm tracking-wider text-accent-cyan animate-pulse">
+            {getStageMessage(currentPct)}
           </p>
-          <div className="mt-4 h-1 w-48 overflow-hidden rounded-full bg-panel">
+
+          <p className="mt-2 font-mono text-xs text-muted">
+            {currentPct}%
+          </p>
+
+          <div className="mt-4 h-1.5 w-56 overflow-hidden rounded-full bg-panel border border-line">
             <div
-              className="h-full bg-gradient-to-r from-accent-purple to-accent-cyan transition-all duration-300"
-              style={{ width: `${loadProgress}%` }}
+              className="h-full bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-emerald transition-all duration-150 ease-out"
+              style={{ width: `${currentPct}%` }}
             />
           </div>
         </div>
@@ -614,3 +707,4 @@ export default function Hero3D() {
     </>
   );
 }
+

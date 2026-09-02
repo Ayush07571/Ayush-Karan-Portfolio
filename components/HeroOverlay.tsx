@@ -1,9 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Terminal, FileText, Mail, Phone, MessageSquare } from "lucide-react";
-
-const RESUME_URL = "https://drive.google.com/file/d/1S03oJ8WHTO-VegBR1_LJT9DTE_zNIuEw/view?usp=sharing";
+import { ArrowDown, Terminal, Mail, Phone, MessageSquare } from "lucide-react";
 
 function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
@@ -88,16 +86,6 @@ export default function HeroOverlay({ onOpenTerminal }: HeroOverlayProps) {
             <Terminal className="h-4 w-4 text-accent-cyan group-hover:rotate-12 transition-transform" />
             <span>AK-OS Console</span>
           </button>
-
-          <a
-            href={RESUME_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl border border-line bg-panel-solid/80 px-5 py-3.5 font-mono text-sm font-medium text-muted hover:text-ivory hover:border-line-bright hover:scale-[1.02] transition-all w-full sm:w-auto"
-          >
-            <FileText className="h-4 w-4 text-accent-coral" />
-            <span>Resume ↗</span>
-          </a>
         </motion.div>
 
         {/* Quick Metric Badges (3 Clean Cards) */}

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import confetti from "canvas-confetti";
 import Reveal from "./Reveal";
-import { Mail, Copy, Check, Send, ArrowUp, Clock, FileText, ExternalLink, Phone, MessageSquare, AlertCircle } from "lucide-react";
+import { Mail, Copy, Check, Send, ArrowUp, Clock, FileText, ExternalLink, AlertCircle } from "lucide-react";
 
 const RESUME_URL = "/resume.pdf";
 
@@ -25,7 +25,6 @@ function LinkedinIcon({ className = "h-4 w-4" }: { className?: string }) {
 
 export default function Contact() {
   const [emailCopied, setEmailCopied] = useState(false);
-  const [phoneCopied, setPhoneCopied] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
@@ -62,13 +61,6 @@ export default function Contact() {
     setEmailCopied(true);
     confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 } });
     setTimeout(() => setEmailCopied(false), 2500);
-  };
-
-  const handleCopyPhone = () => {
-    navigator.clipboard.writeText("8873718596");
-    setPhoneCopied(true);
-    confetti({ particleCount: 40, spread: 50, origin: { y: 0.8 } });
-    setTimeout(() => setPhoneCopied(false), 2500);
   };
 
   const handleSubmitForm = async (e: React.FormEvent) => {
@@ -141,53 +133,11 @@ export default function Contact() {
               </div>
 
               <p className="mt-5 text-xs sm:text-sm text-muted leading-relaxed">
-                Available for Software Development, Full-Stack engineering, Cloud Architecture, and n8n AI Agent automation workflows. Reach out via call, WhatsApp, or email!
+                Available for Software Development, Full-Stack engineering, Cloud Architecture, and n8n AI Agent automation workflows. Reach out via email or send a direct message below!
               </p>
 
               {/* Direct Quick Interactive Contact Cards */}
               <div className="mt-5 sm:mt-6 space-y-3">
-                {/* Phone Card with Call & WhatsApp options */}
-                <div className="w-full rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-mono text-xs text-ivory">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Phone className="h-4 w-4 text-accent-amber shrink-0" />
-                      <span className="font-bold">+91 8873718596</span>
-                    </div>
-                    <button
-                      onClick={handleCopyPhone}
-                      className="text-muted hover:text-ivory transition-colors p-1"
-                      title="Copy Phone Number"
-                    >
-                      {phoneCopied ? (
-                        <span className="text-accent-emerald text-[10px] flex items-center gap-1">
-                          <Check className="h-3 w-3" /> Copied
-                        </span>
-                      ) : (
-                        <Copy className="h-3.5 w-3.5" />
-                      )}
-                    </button>
-                  </div>
-                  <div className="mt-2.5 flex flex-col sm:flex-row items-center gap-2">
-                    <a
-                      href="tel:8873718596"
-                      className="w-full sm:flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-accent-amber/40 bg-accent-amber/15 py-2 font-mono text-xs font-semibold text-ivory hover:bg-accent-amber/30 transition-all"
-                      title="Call directly"
-                    >
-                      <Phone className="h-3.5 w-3.5 text-accent-amber" />
-                      <span>Direct Call</span>
-                    </a>
-                    <a
-                      href="https://wa.me/918873718596"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full sm:flex-1 flex items-center justify-center gap-1.5 rounded-lg border border-accent-emerald/40 bg-accent-emerald/15 py-2 font-mono text-xs font-semibold text-ivory hover:bg-accent-emerald/30 transition-all"
-                      title="Open WhatsApp chat"
-                    >
-                      <MessageSquare className="h-3.5 w-3.5 text-accent-emerald" />
-                      <span>WhatsApp</span>
-                    </a>
-                  </div>
-                </div>
 
                 {/* Email Card */}
                 <div className="w-full flex items-center justify-between gap-2 rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-mono text-xs text-ivory hover:border-accent-purple/50 transition-colors">

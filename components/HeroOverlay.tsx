@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowDown, Terminal, Mail, Phone, MessageSquare } from "lucide-react";
+import { ArrowDown, Terminal, Mail } from "lucide-react";
 
 function GithubIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
@@ -145,22 +145,6 @@ export default function HeroOverlay({ onOpenTerminal }: HeroOverlayProps) {
             title="Send Email"
           >
             <Mail className="h-4 w-4 text-accent-purple" />
-          </a>
-          <a
-            href="tel:8873718596"
-            className="rounded-full border border-line bg-panel p-2.5 hover:border-accent-amber hover:text-ivory transition-all"
-            title="Direct Phone Call"
-          >
-            <Phone className="h-4 w-4 text-accent-amber" />
-          </a>
-          <a
-            href="https://wa.me/918873718596"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="rounded-full border border-line bg-panel p-2.5 hover:border-accent-emerald hover:text-ivory transition-all"
-            title="WhatsApp Chat"
-          >
-            <MessageSquare className="h-4 w-4 text-accent-emerald" />
           </a>
         </motion.div>
       </div>

@@ -73,7 +73,6 @@ const RAW_SKILLS_JSON = {
   degree: "B.Tech CSE (Cloud Computing & Automation)",
   institution: "VIT Bhopal University",
   contact: {
-    phone: "8873718596",
     email: "ayushkaran328@gmail.com",
     availability: "Available for Software Development, Full-Stack & n8n AI Agent roles"
   },

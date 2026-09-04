@@ -58,7 +58,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
             <p><span className="text-accent-cyan font-mono font-bold">experience</span> — Completed internships &amp; software history</p>
             <p><span className="text-accent-cyan font-mono font-bold">skills</span> — Full tech stack overview</p>
             <p><span className="text-accent-emerald font-mono">projects</span> — Key projects &amp; n8n AI systems</p>
-            <p><span className="text-accent-amber font-mono font-bold">contact</span> / <span className="text-accent-amber font-mono">phone</span> — Phone (+91 8873718596) &amp; Email</p>
+            <p><span className="text-accent-amber font-mono font-bold">contact</span> — Email &amp; Social links</p>
             <p><span className="text-accent-coral font-mono">resume</span> — Open Resume (PDF)</p>
             <p><span className="text-accent-purple font-mono font-bold">hire</span> — Recruit Ayush Karan</p>
             <p><span className="text-muted font-mono font-bold">clear</span> — Clear terminal screen</p>
@@ -121,10 +121,8 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         break;
 
       case "contact":
-      case "phone":
         response = (
           <div className="space-y-1 text-xs font-mono">
-            <p className="text-accent-amber font-bold">Phone / WhatsApp: +91 8873718596</p>
             <p className="text-ivory">Email: <a href="mailto:ayushkaran328@gmail.com" className="text-accent-cyan underline">ayushkaran328@gmail.com</a></p>
             <p className="text-ivory">GitHub: <a href="https://github.com/Ayush07571" target="_blank" className="text-accent-purple underline">github.com/Ayush07571</a></p>
             <p className="text-ivory">LinkedIn: <a href="https://linkedin.com/in/ayush-karan" target="_blank" className="text-accent-cyan underline">linkedin.com/in/ayush-karan</a></p>
@@ -146,7 +144,6 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
           <div className="space-y-1.5 text-xs">
             <p className="text-accent-emerald font-bold text-sm">🎉 Excellent Choice!</p>
             <p className="text-ivory">Ayush Karan is available for Software Development, Full-Stack, Cloud Architecture &amp; n8n AI Agent roles.</p>
-            <p className="text-accent-amber font-mono font-bold">Direct Phone: +91 8873718596</p>
             <p className="text-accent-cyan font-mono">Direct Email: ayushkaran328@gmail.com</p>
           </div>
         );
@@ -202,7 +199,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
 
         {/* Quick Action Chips */}
         <div className="flex items-center gap-2 overflow-x-auto p-2.5 sm:p-3 border-b border-line bg-ink/50 no-scrollbar font-mono text-[11px]">
-          {["help", "bio", "experience", "skills", "projects", "contact", "phone", "resume", "hire", "clear"].map((c) => (
+          {["help", "bio", "experience", "skills", "projects", "contact", "resume", "hire", "clear"].map((c) => (
             <button
               key={c}
               onClick={() => runCommand(c)}

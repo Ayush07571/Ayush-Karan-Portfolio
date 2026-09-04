@@ -51,7 +51,7 @@ A high-performance, interactive 3D developer portfolio featuring a master Three.
 │   ├── Projects.tsx        # Projects grid with browser window mockups & n8n architecture flow
 │   ├── Skills.tsx          # Interactive tech stack categories & json code viewer
 │   ├── Achievements.tsx    # Hackathons & leadership milestones
-│   ├── Contact.tsx         # Direct contact form, phone/whatsapp actions, time clock
+│   ├── Contact.tsx         # Direct contact form, email request actions, time clock
 │   └── TerminalModal.tsx   # Interactive AK-OS terminal modal
 └── public/
     ├── models/             # Avatar FBX model files

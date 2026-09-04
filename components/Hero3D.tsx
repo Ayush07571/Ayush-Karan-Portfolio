@@ -656,36 +656,43 @@ export default function Hero3D() {
 
   return (
     <>
-      {/* BUG 4: Master Fixed 3D Canvas with z-0 container */}
+      {/* Master Fixed 3D Canvas with Smooth Fade-In */}
       <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
-        <canvas ref={canvasRef} className="w-full h-full block" />
+        <canvas
+          ref={canvasRef}
+          className={`w-full h-full block transition-opacity duration-1000 ease-out ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+        />
       </div>
 
-      {/* BUG 1: Smooth Lerp Loading Overlay with 400ms Pause & 0.6s Fade Out */}
+      {/* Non-Blocking Floating 3D Loading Status Pill (Bottom-Right) */}
       {!isLoaded && (
         <div
-          className={`fixed inset-0 z-50 flex flex-col items-center justify-center bg-ink text-ivory transition-opacity duration-600 ease-out ${
-            isFadingOut ? "opacity-0 pointer-events-none" : "opacity-100"
+          className={`fixed bottom-6 right-6 z-30 pointer-events-none flex items-center gap-3 rounded-2xl border border-line bg-panel-solid/90 px-4 py-2.5 backdrop-blur-xl shadow-glass transition-opacity duration-500 ease-out ${
+            isFadingOut ? "opacity-0" : "opacity-100"
           }`}
         >
-          <div className="relative flex items-center justify-center">
-            <div className="h-20 w-20 rounded-full border-2 border-line border-t-accent-purple animate-spin" />
-            <Move3d className="absolute h-8 w-8 text-accent-purple animate-pulse" />
+          <div className="relative flex items-center justify-center h-5 w-5">
+            <div className="h-5 w-5 rounded-full border-2 border-line border-t-accent-purple animate-spin" />
+            <Move3d className="absolute h-2.5 w-2.5 text-accent-purple" />
           </div>
 
-          <p className="mt-6 font-mono text-sm tracking-wider text-accent-cyan animate-pulse">
-            {getStageMessage(currentPct)}
-          </p>
-
-          <p className="mt-2 font-mono text-xs text-muted">
-            {currentPct}%
-          </p>
-
-          <div className="mt-4 h-1.5 w-56 overflow-hidden rounded-full bg-panel border border-line">
-            <div
-              className="h-full bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-emerald transition-all duration-150 ease-out"
-              style={{ width: `${currentPct}%` }}
-            />
+          <div className="flex flex-col">
+            <span className="font-sans text-[11px] font-semibold text-ivory tracking-wide">
+              {getStageMessage(currentPct)}
+            </span>
+            <div className="flex items-center gap-2 mt-0.5">
+              <div className="h-1 w-20 overflow-hidden rounded-full bg-ink border border-line">
+                <div
+                  className="h-full bg-gradient-to-r from-accent-purple via-accent-cyan to-accent-emerald transition-all duration-150 ease-out"
+                  style={{ width: `${currentPct}%` }}
+                />
+              </div>
+              <span className="font-sans text-[10px] text-muted font-bold">
+                {currentPct}%
+              </span>
+            </div>
           </div>
         </div>
       )}

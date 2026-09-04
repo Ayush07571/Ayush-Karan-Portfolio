@@ -100,8 +100,8 @@ export default function Contact() {
     <section id="contact" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 z-10">
       <Reveal>
         <div className="flex items-center gap-2">
-          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent-cyan">
-            // 05. Initiate Connection
+          <span className="font-sans text-xs font-semibold uppercase tracking-widest text-accent-cyan">
+            06 &bull; Initiate Connection
           </span>
           <div className="h-[1px] flex-1 bg-line" />
         </div>
@@ -125,8 +125,8 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-mono text-base sm:text-lg font-bold text-ivory">Ayush Karan</h3>
-                  <p className="font-mono text-xs text-accent-cyan">
+                  <h3 className="font-sans text-base sm:text-lg font-bold text-ivory">Ayush Karan</h3>
+                  <p className="font-sans text-xs font-semibold text-accent-cyan">
                     Full-Stack &amp; Aspiring Cloud Architect
                   </p>
                 </div>
@@ -140,18 +140,18 @@ export default function Contact() {
               <div className="mt-5 sm:mt-6 space-y-3">
 
                 {/* Email Card */}
-                <div className="w-full flex items-center justify-between gap-2 rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-mono text-xs text-ivory hover:border-accent-purple/50 transition-colors">
+                <div className="w-full flex items-center justify-between gap-2 rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-sans text-xs text-ivory hover:border-accent-purple/50 transition-colors">
                   <a
                     href="mailto:ayushkaran328@gmail.com"
                     className="flex items-center gap-2 sm:gap-2.5 hover:text-accent-purple transition-colors flex-1 overflow-hidden"
                     title="Click to open Email app"
                   >
                     <Mail className="h-4 w-4 text-accent-purple shrink-0" />
-                    <span className="underline underline-offset-2 truncate">ayushkaran328@gmail.com</span>
+                    <span className="underline underline-offset-2 truncate font-medium">ayushkaran328@gmail.com</span>
                   </a>
                   <button
                     onClick={handleCopyEmail}
-                    className="flex items-center gap-1 rounded-lg border border-line bg-ink/60 px-2 py-1 text-muted hover:text-ivory hover:border-line-bright transition-colors shrink-0 text-[11px]"
+                    className="flex items-center gap-1 rounded-lg border border-line bg-ink/60 px-2 py-1 font-sans font-medium text-muted hover:text-ivory hover:border-line-bright transition-colors shrink-0 text-[11px]"
                     title="Copy Email Address"
                   >
                     {emailCopied ? (
@@ -170,7 +170,7 @@ export default function Contact() {
                   href={RESUME_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full flex items-center justify-between rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-mono text-xs text-ivory hover:border-accent-cyan/50 transition-colors group"
+                  className="w-full flex items-center justify-between rounded-xl border border-line bg-panel-light/70 p-3 sm:p-3.5 font-sans text-xs font-semibold text-ivory hover:border-accent-cyan/50 transition-colors group"
                 >
                   <div className="flex items-center gap-2.5">
                     <FileText className="h-4 w-4 text-accent-cyan shrink-0" />
@@ -182,8 +182,8 @@ export default function Contact() {
 
               {/* Social Channels */}
               <div className="mt-6 sm:mt-8">
-                <p className="font-mono text-xs text-muted uppercase tracking-wider">Social Channels</p>
-                <div className="mt-3 flex flex-col sm:flex-row gap-2.5 sm:gap-3 font-mono text-xs">
+                <p className="font-sans text-xs font-semibold text-muted uppercase tracking-wider">Social Channels</p>
+                <div className="mt-3 flex flex-col sm:flex-row gap-2.5 sm:gap-3 font-sans text-xs font-semibold">
                   <a
                     href="https://github.com/ayush07571"
                     target="_blank"
@@ -207,7 +207,7 @@ export default function Contact() {
             </div>
 
             {/* Time Clock */}
-            <div className="mt-6 sm:mt-8 pt-4 border-t border-line flex items-center justify-between font-mono text-xs text-muted">
+            <div className="mt-6 sm:mt-8 pt-4 border-t border-line flex items-center justify-between font-sans text-xs text-muted font-medium">
               <div className="flex items-center gap-1.5">
                 <Clock className="h-3.5 w-3.5 text-accent-purple shrink-0" />
                 <span>{timeString || "IST Time"}</span>
@@ -226,71 +226,71 @@ export default function Contact() {
                 </div>
                 <h3 className="mt-4 text-xl sm:text-2xl font-bold text-ivory">Message Transmitted!</h3>
                 <p className="mt-2 text-xs sm:text-sm text-muted max-w-sm mx-auto">
-                  Thank you for reaching out, {formData.name}. Your message has been sent directly to <span className="text-accent-purple font-mono">ayushkaran328@gmail.com</span>!
+                  Thank you for reaching out, {formData.name}. Your message has been sent directly to <span className="text-accent-purple font-sans font-semibold">ayushkaran328@gmail.com</span>!
                 </p>
                 <button
                   onClick={() => {
                     setFormSubmitted(false);
                     setFormData({ name: "", email: "", message: "" });
                   }}
-                  className="mt-6 font-mono text-xs text-accent-purple underline underline-offset-4"
+                  className="mt-6 font-sans text-xs font-semibold text-accent-purple underline underline-offset-4"
                 >
                   Send another message
                 </button>
               </div>
             ) : (
               <form onSubmit={handleSubmitForm} className="space-y-4 sm:space-y-5">
-                <h3 className="font-mono text-xs sm:text-sm uppercase tracking-wider text-accent-purple font-semibold">
+                <h3 className="font-sans text-xs sm:text-sm uppercase tracking-wider text-accent-purple font-bold">
                   Send a Direct Message
                 </h3>
 
                 {errorMsg && (
-                  <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3.5 font-mono text-xs text-red-300 flex items-center gap-2">
+                  <div className="rounded-xl border border-red-500/40 bg-red-500/10 p-3.5 font-sans text-xs text-red-300 flex items-center gap-2">
                     <AlertCircle className="h-4 w-4 shrink-0 text-red-400" />
                     <span>{errorMsg}</span>
                   </div>
                 )}
 
                 <div>
-                  <label className="block font-mono text-xs text-muted mb-1.5">Your Name</label>
+                  <label className="block font-sans text-xs font-medium text-muted mb-1.5">Your Name</label>
                   <input
                     type="text"
                     required
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="Alex Mercer"
-                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
+                    placeholder="Rohan Sharma"
+                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-sans text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-mono text-xs text-muted mb-1.5">Email Address</label>
+                  <label className="block font-sans text-xs font-medium text-muted mb-1.5">Email Address</label>
                   <input
                     type="email"
                     required
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="alex.mercer@techcorp.io"
-                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
+                    placeholder="rohan.sharma@techcorp.in"
+                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-sans text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors"
                   />
                 </div>
 
                 <div>
-                  <label className="block font-mono text-xs text-muted mb-1.5">Message / Project Details</label>
+                  <label className="block font-sans text-xs font-medium text-muted mb-1.5">Message / Project Details</label>
                   <textarea
                     rows={4}
                     required
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Hi Ayush, we're building a web platform and want to integrate an n8n AI agent pipeline..."
-                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-mono text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors resize-none"
+                    className="w-full rounded-xl border border-line bg-ink/70 px-4 py-3 font-sans text-base sm:text-sm text-ivory focus:border-accent-purple focus:outline-none transition-colors resize-none"
                   />
                 </div>
 
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-6 py-3.5 font-mono text-xs sm:text-sm font-semibold text-white shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-6 py-3.5 font-sans text-xs sm:text-sm font-bold text-white shadow-glow hover:scale-[1.01] active:scale-[0.99] transition-all disabled:opacity-50"
                 >
                   {loading ? (
                     <span className="flex items-center gap-2">
@@ -311,7 +311,7 @@ export default function Contact() {
       </div>
 
       {/* Footer Bar */}
-      <div className="mt-16 sm:mt-24 border-t border-line pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-xs text-muted">
+      <div className="mt-16 sm:mt-24 border-t border-line pt-6 sm:pt-8 flex flex-col md:flex-row items-center justify-between gap-4 font-sans text-xs text-muted">
         <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-3 text-center sm:text-left">
           <p className="text-ivory font-semibold">
             &copy; {new Date().getFullYear()} Ayush Karan
@@ -323,7 +323,7 @@ export default function Contact() {
         </div>
 
         <div className="flex flex-wrap items-center justify-center gap-3">
-          <div className="flex items-center gap-2 rounded-full border border-accent-emerald/30 bg-accent-emerald/10 px-3 py-1 text-[11px] text-accent-emerald">
+          <div className="flex items-center gap-2 rounded-full border border-accent-emerald/30 bg-accent-emerald/10 px-3 py-1 text-[11px] font-semibold text-accent-emerald">
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-emerald opacity-75" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-accent-emerald" />
@@ -333,7 +333,7 @@ export default function Contact() {
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 rounded-lg border border-line bg-panel-light/70 px-3 py-1.5 text-muted hover:text-ivory hover:border-accent-purple/50 transition-all"
+            className="flex items-center gap-1.5 rounded-lg border border-line bg-panel-light/70 px-3 py-1.5 font-sans font-medium text-muted hover:text-ivory hover:border-accent-purple/50 transition-all"
           >
             <span>Back to top</span>
             <ArrowUp className="h-3.5 w-3.5" />

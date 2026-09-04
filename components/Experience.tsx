@@ -52,8 +52,8 @@ export default function Experience() {
     <section id="experience" className="relative mx-auto max-w-6xl px-4 sm:px-6 py-20 sm:py-28 z-10">
       <Reveal>
         <div className="flex items-center gap-2">
-          <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent-cyan">
-            // 02. Professional Experience
+          <span className="font-sans text-xs font-semibold uppercase tracking-widest text-accent-cyan">
+            02 &bull; Professional Experience
           </span>
           <div className="h-[1px] flex-1 bg-line" />
         </div>
@@ -78,11 +78,11 @@ export default function Experience() {
               <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                 <div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-mono text-xs text-muted flex items-center gap-1">
+                    <span className="font-sans text-xs font-medium text-muted flex items-center gap-1">
                       <Calendar className="h-3.5 w-3.5 text-accent-purple shrink-0" />
                       {job.period}
                     </span>
-                    <span className={`font-mono text-[10px] rounded-full border px-2.5 py-0.5 font-medium ${job.badgeColor}`}>
+                    <span className={`font-sans text-[10px] rounded-full border px-2.5 py-0.5 font-semibold ${job.badgeColor}`}>
                       {job.badge}
                     </span>
                   </div>
@@ -100,7 +100,7 @@ export default function Experience() {
                     href={job.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 rounded-lg border border-line bg-panel-light px-3 py-1.5 font-mono text-xs text-accent-cyan hover:border-accent-cyan hover:bg-accent-cyan/10 transition-all w-fit"
+                    className="flex items-center gap-1.5 rounded-lg border border-line bg-panel-light px-3 py-1.5 font-sans text-xs font-semibold text-accent-cyan hover:border-accent-cyan hover:bg-accent-cyan/10 transition-all w-fit"
                   >
                     <span>pracup.co.in</span>
                     <ExternalLink className="h-3.5 w-3.5" />
@@ -123,7 +123,7 @@ export default function Experience() {
                 {job.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-lg border border-line bg-ink/70 px-2.5 py-1 font-mono text-[11px] text-muted hover:text-ivory hover:border-accent-purple/40 transition-colors"
+                    className="rounded-lg border border-line bg-ink/70 px-2.5 py-1 font-sans text-[11px] font-medium text-muted hover:text-ivory hover:border-accent-purple/40 transition-colors"
                   >
                     {tag}
                   </span>

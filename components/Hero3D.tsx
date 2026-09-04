@@ -394,31 +394,40 @@ export default function Hero3D() {
           actions.idle.setLoop(THREE.LoopRepeat, Infinity);
         }
 
-        // 2. Load Typing Animation
-        loader.load(
-          TYPING_PATH,
-          (typingObj) => {
-            if (typingObj.animations[0] && mixer) {
-              actions.typing = mixer.clipAction(typingObj.animations[0]);
-              actions.typing.setLoop(THREE.LoopRepeat, Infinity);
-            }
-          },
-          undefined,
-          (err) => console.warn("Failed typing anim", err)
-        );
+        // Defer loading heavy secondary animations (Typing & Waving) until idle
+        const loadSecondaryAnimations = () => {
+          const asyncLoader = new FBXLoader();
 
-        // 3. Load Waving Animation
-        loader.load(
-          WAVING_PATH,
-          (wavingObj) => {
-            if (wavingObj.animations[0] && mixer) {
-              actions.waving = mixer.clipAction(wavingObj.animations[0]);
-              actions.waving.setLoop(THREE.LoopRepeat, Infinity);
-            }
-          },
-          undefined,
-          (err) => console.warn("Failed waving anim", err)
-        );
+          asyncLoader.load(
+            TYPING_PATH,
+            (typingObj) => {
+              if (typingObj.animations[0] && mixer) {
+                actions.typing = mixer.clipAction(typingObj.animations[0]);
+                actions.typing.setLoop(THREE.LoopRepeat, Infinity);
+              }
+            },
+            undefined,
+            (err) => console.warn("Failed typing anim", err)
+          );
+
+          asyncLoader.load(
+            WAVING_PATH,
+            (wavingObj) => {
+              if (wavingObj.animations[0] && mixer) {
+                actions.waving = mixer.clipAction(wavingObj.animations[0]);
+                actions.waving.setLoop(THREE.LoopRepeat, Infinity);
+              }
+            },
+            undefined,
+            (err) => console.warn("Failed waving anim", err)
+          );
+        };
+
+        if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+          (window as any).requestIdleCallback(loadSecondaryAnimations);
+        } else {
+          setTimeout(loadSecondaryAnimations, 1000);
+        }
       },
       undefined,
       (err) => {

@@ -107,8 +107,8 @@ export default function Skills() {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent-cyan">
-                // 04. Technical Capabilities
+              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-accent-cyan">
+                04 &bull; Technical Capabilities
               </span>
               <div className="h-[1px] w-12 bg-line" />
             </div>
@@ -121,10 +121,10 @@ export default function Skills() {
           <div className="flex items-center gap-1 rounded-xl border border-line bg-panel p-1.5 backdrop-blur-md">
             <button
               onClick={() => setViewMode("visual")}
-              className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 font-mono text-xs transition-all ${
+              className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 font-sans text-xs transition-all ${
                 viewMode === "visual"
                   ? "bg-accent-purple/20 text-accent-purple font-semibold border border-accent-purple/40"
-                  : "text-muted hover:text-ivory"
+                  : "text-muted hover:text-ivory font-medium"
               }`}
             >
               <Cpu className="h-3.5 w-3.5" />
@@ -133,10 +133,10 @@ export default function Skills() {
 
             <button
               onClick={() => setViewMode("json")}
-              className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 font-mono text-xs transition-all ${
+              className={`flex items-center gap-1.5 rounded-lg px-3 py-1.5 font-sans text-xs transition-all ${
                 viewMode === "json"
                   ? "bg-accent-cyan/20 text-accent-cyan font-semibold border border-accent-cyan/40"
-                  : "text-muted hover:text-ivory"
+                  : "text-muted hover:text-ivory font-medium"
               }`}
             >
               <Terminal className="h-3.5 w-3.5" />
@@ -160,11 +160,11 @@ export default function Skills() {
                         <div className="rounded-xl border border-line bg-panel-light p-2.5">
                           <Icon className={`h-5 w-5 ${cat.color}`} />
                         </div>
-                        <h3 className="font-mono text-base sm:text-lg font-bold text-ivory">
+                        <h3 className="font-sans text-base sm:text-lg font-bold text-ivory">
                           {cat.title}
                         </h3>
                       </div>
-                      <span className={`font-mono text-[10px] rounded-full border px-2.5 py-0.5 font-medium ${cat.badgeColor}`}>
+                      <span className={`font-sans text-[10px] rounded-full border px-2.5 py-0.5 font-semibold ${cat.badgeColor}`}>
                         {cat.skills.length} Skills
                       </span>
                     </div>
@@ -173,10 +173,10 @@ export default function Skills() {
                       {cat.skills.map((skill) => (
                         <div key={skill.name} className="rounded-xl border border-line bg-panel-light/60 p-3 sm:p-3.5">
                           <div className="flex items-center justify-between">
-                            <span className="font-mono text-xs sm:text-sm font-semibold text-ivory">
+                            <span className="font-sans text-xs sm:text-sm font-bold text-ivory">
                               {skill.name}
                             </span>
-                            <span className="font-mono text-[10px] rounded bg-ink px-2 py-0.5 text-accent-purple border border-line">
+                            <span className="font-sans text-[10px] font-semibold rounded bg-ink px-2 py-0.5 text-accent-purple border border-line">
                               {skill.level}
                             </span>
                           </div>

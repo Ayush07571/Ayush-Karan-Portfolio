@@ -65,7 +65,7 @@ export default function Nav({ onOpenTerminal }: NavProps) {
           {/* Logo */}
           <a
             href="#top"
-            className="group flex items-center gap-2 font-mono text-xs sm:text-sm font-semibold tracking-tight text-ivory"
+            className="group flex items-center gap-2 font-sans text-xs sm:text-sm font-bold tracking-tight text-ivory"
           >
             <span className="flex h-2 w-2 rounded-full bg-accent-emerald animate-pulse" />
             <span>ayush</span>
@@ -76,18 +76,17 @@ export default function Nav({ onOpenTerminal }: NavProps) {
           </a>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden items-center gap-6 font-mono text-xs text-muted md:flex">
+          <nav className="hidden items-center gap-6 font-sans text-xs text-muted md:flex">
             {LINKS.map((l) => {
               const isCurrent = activeSection === l.href.substring(1);
               return (
                 <a
                   key={l.href}
                   href={l.href}
-                  className={`relative py-1 transition-colors hover:text-ivory ${
-                    isCurrent ? "text-ivory font-medium" : ""
+                  className={`relative py-1 capitalize transition-colors hover:text-ivory ${
+                    isCurrent ? "text-ivory font-semibold" : "font-medium"
                   }`}
                 >
-                  <span className="text-accent-purple/75 mr-1">//</span>
                   {l.label}
                   {isCurrent && (
                     <span className="absolute bottom-0 left-0 right-0 h-[2px] rounded-full bg-gradient-to-r from-accent-purple to-accent-cyan" />
@@ -102,7 +101,7 @@ export default function Nav({ onOpenTerminal }: NavProps) {
             {/* Terminal Launcher */}
             <button
               onClick={onOpenTerminal}
-              className="hidden sm:flex items-center gap-1.5 rounded-lg border border-line bg-panel-light/60 px-3 py-1.5 font-mono text-xs text-ivory hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all group"
+              className="hidden sm:flex items-center gap-1.5 rounded-lg border border-line bg-panel-light/60 px-3 py-1.5 font-sans text-xs font-semibold text-ivory hover:border-accent-purple/50 hover:bg-accent-purple/10 transition-all group"
               title="Launch Interactive Terminal"
             >
               <Terminal className="h-3.5 w-3.5 text-accent-cyan group-hover:scale-110 transition-transform" />
@@ -114,13 +113,12 @@ export default function Nav({ onOpenTerminal }: NavProps) {
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-1.5 rounded-lg border border-accent-purple/40 bg-accent-purple/15 px-2.5 sm:px-3 py-1.5 font-mono text-xs text-ivory hover:bg-accent-purple/25 hover:border-accent-purple transition-all"
+              className="flex items-center gap-1.5 rounded-lg border border-accent-purple/40 bg-accent-purple/15 px-2.5 sm:px-3 py-1.5 font-sans text-xs font-semibold text-ivory hover:bg-accent-purple/25 hover:border-accent-purple transition-all"
             >
               <FileText className="h-3.5 w-3.5 text-accent-purple" />
               <span className="hidden sm:inline">Resume</span>
               <ExternalLink className="h-3 w-3 text-muted" />
             </a>
-
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -135,15 +133,14 @@ export default function Nav({ onOpenTerminal }: NavProps) {
         {/* Mobile Slide-Down Drawer */}
         {mobileMenuOpen && (
           <div className="mt-2 rounded-2xl border border-line bg-panel-solid/95 p-5 backdrop-blur-2xl shadow-glass md:hidden animate-fadeIn">
-            <nav className="flex flex-col gap-3 font-mono text-sm">
+            <nav className="flex flex-col gap-3 font-sans text-sm font-medium">
               {LINKS.map((l) => (
                 <a
                   key={l.href}
                   href={l.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-2.5 py-1.5 text-muted hover:text-ivory transition-colors"
+                  className="flex items-center gap-2 py-1.5 capitalize text-muted hover:text-ivory transition-colors"
                 >
-                  <span className="text-accent-purple">&gt;</span>
                   {l.label}
                 </a>
               ))}

@@ -64,9 +64,9 @@ export default function Achievements() {
       <div className="no-scrollbar overflow-hidden py-3 sm:py-4 border-b border-line bg-ink/60">
         <div className="animate-marquee flex w-max gap-8 sm:gap-12 whitespace-nowrap">
           {marqueeList.map((item, i) => (
-            <span key={i} className="flex items-center gap-2.5 sm:gap-3 font-mono text-xs sm:text-sm text-muted">
+            <span key={i} className="flex items-center gap-2.5 sm:gap-3 font-sans text-xs sm:text-sm text-muted">
               <span className="text-accent-purple animate-pulse">◆</span>
-              <span className="text-ivory font-medium">{item}</span>
+              <span className="text-ivory font-semibold">{item}</span>
             </span>
           ))}
         </div>
@@ -76,8 +76,8 @@ export default function Achievements() {
       <div className="mx-auto max-w-6xl px-4 sm:px-6 pt-12 sm:pt-16">
         <Reveal>
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent-cyan">
-              // Honors &amp; Certifications
+            <span className="font-sans text-xs font-semibold uppercase tracking-widest text-accent-cyan">
+              05 &bull; Honors &amp; Certifications
             </span>
             <div className="h-[1px] flex-1 bg-line" />
           </div>
@@ -97,12 +97,12 @@ export default function Achievements() {
                       <div className={`p-2.5 rounded-xl border ${item.color}`}>
                         <Icon className="h-5 w-5" />
                       </div>
-                      <span className="font-mono text-[10px] text-muted border border-line px-2 py-0.5 rounded">
+                      <span className="font-sans text-[10px] font-semibold text-muted border border-line px-2 py-0.5 rounded">
                         {item.issuer}
                       </span>
                     </div>
 
-                    <h3 className="mt-4 font-mono text-sm sm:text-base font-bold text-ivory">
+                    <h3 className="mt-4 font-sans text-sm sm:text-base font-bold text-ivory">
                       {item.title}
                     </h3>
                     <p className="mt-2 text-xs text-muted leading-relaxed">
@@ -111,7 +111,7 @@ export default function Achievements() {
                   </div>
 
                   <div className="mt-5 sm:mt-6 pt-4 border-t border-line">
-                    <span className={`inline-block font-mono text-[10px] rounded-full border px-2.5 py-0.5 ${item.color}`}>
+                    <span className={`inline-block font-sans text-[10px] font-semibold rounded-full border px-2.5 py-0.5 ${item.color}`}>
                       {item.badge}
                     </span>
                   </div>

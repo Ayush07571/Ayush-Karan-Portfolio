@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Hero3D from "@/components/Hero3D";
+import dynamic from "next/dynamic";
 import Nav from "@/components/Nav";
 import HeroOverlay from "@/components/HeroOverlay";
 import About from "@/components/About";
@@ -11,6 +11,10 @@ import Skills from "@/components/Skills";
 import Achievements from "@/components/Achievements";
 import Contact from "@/components/Contact";
 import TerminalModal from "@/components/TerminalModal";
+
+const Hero3D = dynamic(() => import("@/components/Hero3D"), {
+  ssr: false,
+});
 
 export default function Home() {
   const [terminalOpen, setTerminalOpen] = useState(false);

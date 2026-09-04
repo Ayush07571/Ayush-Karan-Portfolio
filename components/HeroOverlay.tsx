@@ -38,7 +38,7 @@ export default function HeroOverlay({ onOpenTerminal }: HeroOverlayProps) {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-emerald opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-accent-emerald" />
           </span>
-          <span className="font-mono text-[10px] sm:text-xs font-medium text-ivory tracking-normal sm:tracking-wide text-left">
+          <span className="font-sans text-[10px] sm:text-xs font-semibold text-ivory tracking-wide text-left">
             AVAILABLE FOR SOFTWARE DEV &bull; FULL-STACK &amp; CLOUD &bull; N8N AI AGENTS
           </span>
         </motion.div>
@@ -73,7 +73,7 @@ export default function HeroOverlay({ onOpenTerminal }: HeroOverlayProps) {
         >
           <a
             href="#projects"
-            className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-6 py-3.5 font-mono text-sm font-semibold text-white shadow-glow hover:shadow-glow-cyan hover:scale-[1.02] active:scale-[0.98] transition-all w-full sm:w-auto"
+            className="group flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-accent-purple to-indigo-600 px-6 py-3.5 font-sans text-sm font-semibold text-white shadow-glow hover:shadow-glow-cyan hover:scale-[1.02] active:scale-[0.98] transition-all w-full sm:w-auto"
           >
             <span>Explore Projects</span>
             <ArrowDown className="h-4 w-4 group-hover:translate-y-1 transition-transform" />
@@ -81,7 +81,7 @@ export default function HeroOverlay({ onOpenTerminal }: HeroOverlayProps) {
 
           <button
             onClick={onOpenTerminal}
-            className="flex items-center justify-center gap-2 rounded-xl border border-line bg-panel-solid/80 px-5 py-3.5 font-mono text-sm font-medium text-ivory backdrop-blur-xl hover:border-accent-cyan/60 hover:bg-accent-cyan/10 hover:scale-[1.02] active:scale-[0.98] transition-all group w-full sm:w-auto"
+            className="flex items-center justify-center gap-2 rounded-xl border border-line bg-panel-solid/80 px-5 py-3.5 font-sans text-sm font-semibold text-ivory backdrop-blur-xl hover:border-accent-cyan/60 hover:bg-accent-cyan/10 hover:scale-[1.02] active:scale-[0.98] transition-all group w-full sm:w-auto"
           >
             <Terminal className="h-4 w-4 text-accent-cyan group-hover:rotate-12 transition-transform" />
             <span>AK-OS Console</span>
@@ -96,21 +96,21 @@ export default function HeroOverlay({ onOpenTerminal }: HeroOverlayProps) {
           className="pointer-events-auto mt-10 sm:mt-12 grid grid-cols-1 sm:grid-cols-3 gap-3 w-full"
         >
           <div className="rounded-xl border border-line bg-panel/60 p-3.5 sm:p-4 backdrop-blur-md hover:border-accent-purple/40 transition-colors text-left">
-            <p className="font-mono text-xs text-accent-purple">ENGINEERING</p>
-            <p className="mt-1 font-mono text-lg sm:text-xl font-bold text-ivory">Full-Stack</p>
-            <p className="text-[11px] text-muted">Next.js &bull; Node &bull; MongoDB</p>
+            <p className="font-sans text-xs font-bold uppercase tracking-wider text-accent-purple">ENGINEERING</p>
+            <p className="mt-1 font-sans text-lg sm:text-xl font-bold text-ivory">Full-Stack</p>
+            <p className="text-[11px] text-muted font-medium">Next.js &bull; Node &bull; MongoDB</p>
           </div>
 
           <div className="rounded-xl border border-line bg-panel/60 p-3.5 sm:p-4 backdrop-blur-md hover:border-accent-cyan/40 transition-colors text-left">
-            <p className="font-mono text-xs text-accent-cyan">AUTOMATION</p>
-            <p className="mt-1 font-mono text-lg sm:text-xl font-bold text-ivory">n8n Agents</p>
-            <p className="text-[11px] text-muted">Sequential AI Pipelines</p>
+            <p className="font-sans text-xs font-bold uppercase tracking-wider text-accent-cyan">AUTOMATION</p>
+            <p className="mt-1 font-sans text-lg sm:text-xl font-bold text-ivory">n8n Agents</p>
+            <p className="text-[11px] text-muted font-medium">Sequential AI Pipelines</p>
           </div>
 
           <div className="rounded-xl border border-line bg-panel/60 p-3.5 sm:p-4 backdrop-blur-md hover:border-accent-emerald/40 transition-colors text-left">
-            <p className="font-mono text-xs text-accent-emerald">ACADEMICS</p>
-            <p className="mt-1 font-mono text-lg sm:text-xl font-bold text-ivory">B.Tech CSE</p>
-            <p className="text-[11px] text-muted">Cloud Computing &amp; Automation</p>
+            <p className="font-sans text-xs font-bold uppercase tracking-wider text-accent-emerald">ACADEMICS</p>
+            <p className="mt-1 font-sans text-lg sm:text-xl font-bold text-ivory">B.Tech CSE</p>
+            <p className="text-[11px] text-muted font-medium">Cloud Computing &amp; Automation</p>
           </div>
         </motion.div>
 

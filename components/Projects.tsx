@@ -124,8 +124,8 @@ export default function Projects() {
         <div className="flex items-center justify-between flex-wrap gap-4">
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-semibold uppercase tracking-wider text-accent-cyan">
-                // 03. Featured Systems &amp; Projects
+              <span className="font-sans text-xs font-semibold uppercase tracking-widest text-accent-cyan">
+                03 &bull; Featured Systems &amp; Projects
               </span>
               <div className="h-[1px] w-12 bg-line" />
             </div>
@@ -146,7 +146,7 @@ export default function Projects() {
             >
               <div>
                 <div className="flex items-center justify-between gap-2 flex-wrap">
-                  <span className={`font-mono text-[11px] rounded-full border px-3 py-0.5 font-medium ${project.accentBadge}`}>
+                  <span className={`font-sans text-[11px] rounded-full border px-3 py-0.5 font-semibold ${project.accentBadge}`}>
                     {project.metrics}
                   </span>
                   <div className="flex items-center gap-2">
@@ -225,14 +225,14 @@ export default function Projects() {
                   {project.tags.map((t) => (
                     <span
                       key={t}
-                      className="rounded-lg border border-line bg-ink/60 px-2 py-0.5 font-mono text-[10px] sm:text-[11px] text-muted"
+                      className="rounded-lg border border-line bg-ink/60 px-2 py-0.5 font-sans text-[10px] sm:text-[11px] font-medium text-muted"
                     >
                       {t}
                     </span>
                   ))}
                 </div>
 
-                <div className="mt-4 flex items-center justify-between font-mono text-xs text-accent-purple font-medium group-hover:translate-x-1 transition-transform">
+                <div className="mt-4 flex items-center justify-between font-sans text-xs text-accent-purple font-semibold group-hover:translate-x-1 transition-transform">
                   <span>View Project Details</span>
                   <ArrowRight className="h-4 w-4" />
                 </div>

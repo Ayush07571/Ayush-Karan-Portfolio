@@ -54,12 +54,15 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         response = (
           <div className="space-y-1.5 text-xs text-muted">
             <p className="text-ivory font-bold">Available Commands:</p>
-            <p><span className="text-accent-purple font-mono">bio</span> — Brief about Ayush Karan &amp; Cloud background</p>
-            <p><span className="text-accent-cyan font-mono font-bold">experience</span> — Completed internships &amp; software history</p>
-            <p><span className="text-accent-cyan font-mono font-bold">skills</span> — Full tech stack overview</p>
-            <p><span className="text-accent-emerald font-mono">projects</span> — Key projects &amp; n8n AI systems</p>
-            <p><span className="text-accent-amber font-mono font-bold">contact</span> — Email &amp; Social links</p>
-            <p><span className="text-accent-coral font-mono">resume</span> — Open Resume (PDF)</p>
+            <p><span className="text-accent-purple font-mono font-bold">bio</span> — Summary &amp; Background overview</p>
+            <p><span className="text-accent-cyan font-mono font-bold">experience</span> — Software Development Internships (Datatrack &amp; Quantumard)</p>
+            <p><span className="text-accent-amber font-mono font-bold">leadership</span> — EvolVIT Founder &amp; FinTech Co-Lead</p>
+            <p><span className="text-accent-amber font-mono font-bold">achievements</span> — Hackathons, NPTEL Elite &amp; Badges</p>
+            <p><span className="text-accent-purple font-mono font-bold">education</span> — B.Tech CSE (VIT Bhopal, CGPA 9.10), Schooling</p>
+            <p><span className="text-accent-cyan font-mono font-bold">skills</span> — Technical Stack (Languages, Frameworks, AI &amp; Cloud)</p>
+            <p><span className="text-accent-emerald font-mono font-bold">projects</span> — Featured web apps &amp; n8n AI systems</p>
+            <p><span className="text-accent-amber font-mono font-bold">contact</span> — Email, LinkedIn &amp; GitHub links</p>
+            <p><span className="text-accent-coral font-mono font-bold">resume</span> — Open Resume (PDF)</p>
             <p><span className="text-accent-purple font-mono font-bold">hire</span> — Recruit Ayush Karan</p>
             <p><span className="text-muted font-mono font-bold">clear</span> — Clear terminal screen</p>
           </div>
@@ -70,23 +73,85 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         response = (
           <div className="space-y-1 text-xs">
             <p className="text-ivory font-bold">Ayush Karan — Full-Stack Engineer &amp; Aspiring Cloud Architect</p>
-            <p className="text-muted">B.Tech CSE Senior (Cloud Computing &amp; Automation) at VIT Bhopal.</p>
-            <p className="text-muted">Completed Software Internships @ Datatrack (pracup.co.in) &amp; Quantumard.</p>
-            <p className="text-accent-purple font-mono">Founder of EvolVIT Club (VIT Bhopal&apos;s 100th Official University Club).</p>
+            <p className="text-muted">B.Tech CSE (Cloud Computing &amp; Automation) student at VIT Bhopal with 6+ months across two full-stack internships, shipping AI-powered web applications with Next.js, React, and n8n.</p>
+            <p className="text-accent-purple font-mono">Founder &amp; President of EvolVIT, VIT Bhopal&apos;s 100th official university club.</p>
           </div>
         );
         break;
 
       case "experience":
         response = (
-          <div className="space-y-2 text-xs">
+          <div className="space-y-2.5 text-xs">
             <div>
-              <p className="text-accent-purple font-bold">1. Software Development Intern @ Datatrack (pracup.co.in) [Completed]</p>
-              <p className="text-muted">• Architected AI-powered worksheet generation platform &amp; Next.js 14 web app.</p>
+              <p className="text-accent-purple font-bold">1. Software Development Intern — Datatrack <span className="text-muted font-normal">(Mar &apos;26 – Jun &apos;26)</span></p>
+              <p className="text-muted">• Building an AI-powered worksheet generation platform (pracup.co.in) that automates personalized worksheet creation, currently in active testing and refinement ahead of public launch.</p>
+              <p className="text-muted">• Developed responsive landing pages and interactive 3D web experiences using Next.js and Speckit for client-facing product pages.</p>
             </div>
             <div>
-              <p className="text-accent-cyan font-bold">2. Software Development Intern @ Quantumard [Completed]</p>
-              <p className="text-muted">• Engineered RBAC project management tool with MongoDB &amp; REST APIs.</p>
+              <p className="text-accent-cyan font-bold">2. Software Development Intern — Quantumard <span className="text-muted font-normal">(Dec &apos;25 – Feb &apos;26)</span></p>
+              <p className="text-muted">• Built a Role-Based Project Management System with secure role-based access control, task tracking, and multi-user collaboration using Next.js and MongoDB.</p>
+              <p className="text-muted">• Participated in requirement analysis, testing, and deployment of scalable web applications across team project pipelines.</p>
+            </div>
+          </div>
+        );
+        break;
+
+      case "leadership":
+      case "extracurricular":
+      case "clubs":
+        response = (
+          <div className="space-y-2.5 text-xs">
+            <div>
+              <p className="text-accent-purple font-bold">1. Founder &amp; President — EvolVIT Club, VIT Bhopal University <span className="text-muted font-normal">(Oct &apos;25 – Present)</span></p>
+              <p className="text-muted">• Founded VIT Bhopal&apos;s 100th official club, connecting students with industry through internships and live projects.</p>
+              <p className="text-muted">• Launched the EvolVIT Internship Program and led the Idea2Industry initiative, linking students with startups, ideathons, and industrial visits.</p>
+            </div>
+            <div>
+              <p className="text-accent-cyan font-bold">2. Tech Team Co-Lead — FinTech Club, VIT Bhopal University <span className="text-muted font-normal">(Nov &apos;25 – Present)</span></p>
+              <p className="text-muted">• Promoted from Core Member (Nov &apos;24 – Nov &apos;25) to Tech Team Co-Lead based on technical contributions and project leadership.</p>
+              <p className="text-muted">• Mentor club members and lead development of FinTech web projects, ensuring code quality and timely delivery.</p>
+            </div>
+          </div>
+        );
+        break;
+
+      case "achievements":
+      case "awards":
+      case "honors":
+        response = (
+          <div className="space-y-1.5 text-xs">
+            <p className="text-accent-amber font-bold">🏆 Winner — AI-ZEN Hackathon (Google Crowdsource)</p>
+            <p className="text-muted">First place team award for constructing AI applications leveraging Google Crowdsource API.</p>
+            
+            <p className="text-accent-purple font-bold mt-2">🚀 Founder — EvolVIT, VIT Bhopal&apos;s 100th Official Club</p>
+            <p className="text-muted">Established university club connecting student developers to industry projects.</p>
+
+            <p className="text-accent-cyan font-bold mt-2">📜 NPTEL Elite — Cloud Computing &amp; Distributed Systems (IIT Patna)</p>
+            <p className="text-muted">Elite certification with 90% score, placed in Top 5% nationally.</p>
+
+            <p className="text-accent-coral font-bold mt-2">🔥 Hacktoberfest 2024</p>
+            <p className="text-muted">Successfully completed all four open-source contribution levels.</p>
+
+            <p className="text-accent-emerald font-bold mt-2">⭐ HackerRank — 3★ Python Badge</p>
+            <p className="text-muted">Verified specialist rating in Python programming.</p>
+          </div>
+        );
+        break;
+
+      case "education":
+        response = (
+          <div className="space-y-2 text-xs">
+            <div>
+              <p className="text-accent-purple font-bold">1. VIT Bhopal University, Sehore <span className="text-muted font-normal">(Sep &apos;24 – 2028)</span></p>
+              <p className="text-ivory">B.Tech CSE (Cloud Computing &amp; Automation) — <span className="text-accent-cyan font-mono font-bold">CGPA: 9.10</span></p>
+            </div>
+            <div>
+              <p className="text-accent-cyan font-bold">2. DAV Kapildev Public School, Ranchi <span className="text-muted font-normal">(2021 – 2023)</span></p>
+              <p className="text-muted">Higher Secondary (CBSE) — <span className="text-ivory font-mono font-bold">84%</span></p>
+            </div>
+            <div>
+              <p className="text-accent-amber font-bold">3. St. Francis School, Ranchi <span className="text-muted font-normal">(2009 – 2021)</span></p>
+              <p className="text-muted">High School (ICSE) — <span className="text-ivory font-mono font-bold">82.4%</span></p>
             </div>
           </div>
         );
@@ -96,11 +161,13 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         response = (
           <div className="space-y-1 text-xs font-mono">
             <p className="text-accent-purple font-bold">// Languages:</p>
-            <p className="text-ivory">JavaScript (ES6+), C++, Python (3★ Badge), Java, HTML5/CSS3</p>
-            <p className="text-accent-cyan font-bold mt-2">// Web &amp; Cloud Frameworks:</p>
-            <p className="text-ivory">Next.js 14, React.js, Node.js, Express, Cloud Infrastructure, Tailwind CSS, REST APIs</p>
-            <p className="text-accent-emerald font-bold mt-2">// AI &amp; Cloud Systems:</p>
-            <p className="text-ivory">n8n Multi-Agent Sequential AI Reviewers, OpenRouter, MongoDB, Vercel, Railway</p>
+            <p className="text-ivory">C++, Java, Python, JavaScript, TypeScript, HTML, CSS</p>
+            <p className="text-accent-cyan font-bold mt-2">// Frameworks &amp; Libraries:</p>
+            <p className="text-ivory">React.js, Next.js, React Three Fiber (R3F), Three.js, Node.js, Tailwind CSS</p>
+            <p className="text-accent-emerald font-bold mt-2">// AI &amp; Automation:</p>
+            <p className="text-ivory">n8n (workflow automation), AI agent orchestration, prompt engineering, Speckit (AI-assisted spec-driven development)</p>
+            <p className="text-accent-amber font-bold mt-2">// Tools &amp; Platforms:</p>
+            <p className="text-ivory">Git, GitHub, Vercel, Render, Railway, MongoDB</p>
           </div>
         );
         break;
@@ -109,12 +176,31 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         response = (
           <div className="space-y-2 text-xs">
             <div>
-              <p className="text-accent-cyan font-bold">1. Multi-Agent Code Reviewer (n8n)</p>
-              <p className="text-muted">Sequential 4-stage AI agent flow reviewing GitHub PRs with 3-tier routing &amp; Gmail approval.</p>
+              <p className="text-accent-amber font-bold">1. Susi&apos;s Universe 🍕 — 3D Pizza Experience</p>
+              <p className="text-muted">
+                Cinematic Next.js 14 &amp; R3F scroll-driven app for Ranchi&apos;s signature wood-fired pizza brand. (
+                <a href="https://susi-pizza-landing-page.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-accent-cyan underline">
+                  susi-pizza-landing-page.vercel.app
+                </a>)
+              </p>
             </div>
             <div>
-              <p className="text-accent-purple font-bold">2. AI Worksheet Generator (pracup.co.in)</p>
-              <p className="text-muted">Next.js 14 automated worksheet creation app in active production use.</p>
+              <p className="text-accent-cyan font-bold">2. Multi-Agent Sequential PR Code Reviewer (n8n)</p>
+              <p className="text-muted">
+                Sequential 4-stage AI agent flow reviewing GitHub PRs with 3-tier routing &amp; Gmail approval. (
+                <a href="https://github.com/Ayush07571/Multi-Agent-Github-Code-Reviewer" target="_blank" rel="noopener noreferrer" className="text-accent-purple underline">
+                  GitHub Repo
+                </a>)
+              </p>
+            </div>
+            <div>
+              <p className="text-accent-purple font-bold">3. AI Worksheet Generator (pracup.co.in)</p>
+              <p className="text-muted">
+                Next.js 14 automated worksheet creation app in active production use. (
+                <a href="https://pracup.co.in" target="_blank" rel="noopener noreferrer" className="text-accent-cyan underline">
+                  pracup.co.in
+                </a>)
+              </p>
             </div>
           </div>
         );
@@ -199,7 +285,7 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
 
         {/* Quick Action Chips */}
         <div className="flex items-center gap-2 overflow-x-auto p-2.5 sm:p-3 border-b border-line bg-ink/50 no-scrollbar font-mono text-[11px]">
-          {["help", "bio", "experience", "skills", "projects", "contact", "resume", "hire", "clear"].map((c) => (
+          {["help", "bio", "experience", "leadership", "achievements", "education", "skills", "projects", "contact", "resume", "hire", "clear"].map((c) => (
             <button
               key={c}
               onClick={() => runCommand(c)}

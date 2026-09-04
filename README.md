@@ -1,6 +1,6 @@
 # Ayush Karan — 3D Engineering Portfolio 🚀
 
-Live Site: **[ayush-karan-portfolio-eta.vercel.app](https://ayush-karan-portfolio-eta.vercel.app/)**
+Live Site: **[ayushkaran.vercel.app](https://ayushkaran.vercel.app/)**
 
 A high-performance, interactive 3D developer portfolio featuring a master Three.js interactive avatar scene, lerp-based loader, GSAP scroll-driven camera transitions, n8n multi-agent architecture spotlight, and interactive terminal console (AK-OS).
 

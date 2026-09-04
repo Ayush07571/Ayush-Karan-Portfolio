@@ -10,7 +10,7 @@ interface SkillCategory {
   icon: any;
   color: string;
   badgeColor: string;
-  skills: { name: string; level: string; desc: string }[];
+  skills: { name: string; desc: string }[];
 }
 
 const CATEGORIES: SkillCategory[] = [
@@ -21,10 +21,10 @@ const CATEGORIES: SkillCategory[] = [
     color: "text-accent-purple",
     badgeColor: "bg-accent-purple/20 text-accent-purple border-accent-purple/30",
     skills: [
-      { name: "n8n AI Agents", level: "Advanced", desc: "Sequential PR code reviews, OpenRouter LLM routing" },
-      { name: "Agentic AI Pipelines", level: "Advanced", desc: "Multi-agent task refinement & human-in-the-loop approval" },
-      { name: "Prompt Engineering", level: "Expert", desc: "Structured JSON schemas & LLM context optimization" },
-      { name: "Automation Workflows", level: "Advanced", desc: "Gmail API, GitHub Webhooks, Safe-string diff processing" },
+      { name: "n8n AI Agents", desc: "Sequential PR code reviews, OpenRouter LLM routing" },
+      { name: "Agentic AI Pipelines", desc: "Multi-agent task refinement & human-in-the-loop approval" },
+      { name: "Prompt Engineering", desc: "Structured JSON schemas & LLM context optimization" },
+      { name: "Automation Workflows", desc: "Gmail API, GitHub Webhooks, Safe-string diff processing" },
     ],
   },
   {
@@ -34,10 +34,10 @@ const CATEGORIES: SkillCategory[] = [
     color: "text-accent-cyan",
     badgeColor: "bg-accent-cyan/20 text-accent-cyan border-accent-cyan/30",
     skills: [
-      { name: "Next.js 14", level: "Production", desc: "App Router, Server Actions, SSR & SSG Optimization" },
-      { name: "React.js", level: "Expert", desc: "Hooks, Context API, Framer Motion, Responsive UI" },
-      { name: "Node.js & Express", level: "Advanced", desc: "RESTful APIs, middleware, authentication & RBAC" },
-      { name: "Tailwind CSS", level: "Expert", desc: "Design systems, glassmorphism, dark mode tokens" },
+      { name: "Next.js 14", desc: "App Router, Server Actions, SSR & SSG Optimization" },
+      { name: "React.js", desc: "Hooks, Context API, Framer Motion, Responsive UI" },
+      { name: "Node.js & Express", desc: "RESTful APIs, middleware, authentication & RBAC" },
+      { name: "Tailwind CSS", desc: "Design systems, glassmorphism, dark mode tokens" },
     ],
   },
   {
@@ -47,10 +47,10 @@ const CATEGORIES: SkillCategory[] = [
     color: "text-accent-emerald",
     badgeColor: "bg-accent-emerald/20 text-accent-emerald border-accent-emerald/30",
     skills: [
-      { name: "JavaScript (ES6+)", level: "Expert", desc: "Async/Await, Promises, Closures, DOM Manipulation" },
-      { name: "C++", level: "Core CS", desc: "Data structures, algorithms, object-oriented programming" },
-      { name: "Python", level: "3★ Badge", desc: "Scripting, API integrations, data manipulation" },
-      { name: "Java", level: "Core CS", desc: "OOP principles, enterprise application foundations" },
+      { name: "JavaScript (ES6+)", desc: "Async/Await, Promises, Closures, DOM Manipulation" },
+      { name: "C++", desc: "Data structures, algorithms, object-oriented programming" },
+      { name: "Python", desc: "Scripting, API integrations, data manipulation" },
+      { name: "Java", desc: "OOP principles, enterprise application foundations" },
     ],
   },
   {
@@ -60,10 +60,10 @@ const CATEGORIES: SkillCategory[] = [
     color: "text-accent-amber",
     badgeColor: "bg-accent-amber/20 text-accent-amber border-accent-amber/30",
     skills: [
-      { name: "Git & GitHub", level: "Advanced", desc: "Branching workflows, webhooks, pull requests" },
-      { name: "MongoDB", level: "Proficient", desc: "NoSQL document modeling, indexing & aggregation" },
-      { name: "REST APIs", level: "Advanced", desc: "API endpoint design, JWT authentication, error handling" },
-      { name: "Vercel / Render / Railway", level: "Production", desc: "CI/CD deployment, environment configuration" },
+      { name: "Git & GitHub", desc: "Branching workflows, webhooks, pull requests" },
+      { name: "MongoDB", desc: "NoSQL document modeling, indexing & aggregation" },
+      { name: "REST APIs", desc: "API endpoint design, JWT authentication, error handling" },
+      { name: "Vercel / Render / Railway", desc: "CI/CD deployment, environment configuration" },
     ],
   },
 ];
@@ -172,14 +172,9 @@ export default function Skills() {
                     <div className="mt-5 sm:mt-6 space-y-3">
                       {cat.skills.map((skill) => (
                         <div key={skill.name} className="rounded-xl border border-line bg-panel-light/60 p-3 sm:p-3.5">
-                          <div className="flex items-center justify-between">
-                            <span className="font-sans text-xs sm:text-sm font-bold text-ivory">
-                              {skill.name}
-                            </span>
-                            <span className="font-sans text-[10px] font-semibold rounded bg-ink px-2 py-0.5 text-accent-purple border border-line">
-                              {skill.level}
-                            </span>
-                          </div>
+                          <span className="font-sans text-xs sm:text-sm font-bold text-ivory block">
+                            {skill.name}
+                          </span>
                           <p className="mt-1 text-[11px] sm:text-xs text-muted leading-normal">
                             {skill.desc}
                           </p>

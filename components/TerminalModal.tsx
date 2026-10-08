@@ -55,11 +55,11 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
           <div className="space-y-1.5 text-xs text-muted">
             <p className="text-ivory font-bold">Available Commands:</p>
             <p><span className="text-accent-purple font-mono font-bold">bio</span> — Summary &amp; Background overview</p>
-            <p><span className="text-accent-cyan font-mono font-bold">experience</span> — Software Development Internships (Datatrack &amp; Quantumard)</p>
-            <p><span className="text-accent-amber font-mono font-bold">leadership</span> — EvolVIT Founder &amp; FinTech Co-Lead</p>
+            <p><span className="text-accent-cyan font-mono font-bold">experience</span> — Internships (Ripplica, Datatrack &amp; Quantumard)</p>
+            <p><span className="text-accent-amber font-mono font-bold">leadership</span> — EvolVIT Co-Lead &amp; Founder, FinTech Co-Lead</p>
             <p><span className="text-accent-amber font-mono font-bold">achievements</span> — Hackathons, NPTEL Elite &amp; Badges</p>
             <p><span className="text-accent-purple font-mono font-bold">education</span> — B.Tech CSE (VIT Bhopal, CGPA 9.10), Schooling</p>
-            <p><span className="text-accent-cyan font-mono font-bold">skills</span> — Technical Stack (Languages, Frameworks, AI &amp; Cloud)</p>
+            <p><span className="text-accent-cyan font-mono font-bold">skills</span> — Technical Stack (Languages, Frameworks, SEO, AI &amp; Tools)</p>
             <p><span className="text-accent-emerald font-mono font-bold">projects</span> — Featured web apps &amp; n8n AI systems</p>
             <p><span className="text-accent-amber font-mono font-bold">contact</span> — Email, LinkedIn &amp; GitHub links</p>
             <p><span className="text-accent-coral font-mono font-bold">resume</span> — Open Resume (PDF)</p>
@@ -73,8 +73,8 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         response = (
           <div className="space-y-1 text-xs">
             <p className="text-ivory font-bold">Ayush Karan — Full-Stack Engineer &amp; Aspiring Cloud Architect</p>
-            <p className="text-muted">B.Tech CSE (Cloud Computing &amp; Automation) student at VIT Bhopal with 6+ months across two full-stack internships, shipping AI-powered web applications with Next.js, React, and n8n.</p>
-            <p className="text-accent-purple font-mono">Founder &amp; President of EvolVIT, VIT Bhopal&apos;s 100th official university club.</p>
+            <p className="text-muted">B.Tech CSE (Cloud Computing &amp; Automation) student at VIT Bhopal with experience across three internships (Ripplica, Datatrack, Quantumard), shipping AI-powered web applications with Next.js, React, and n8n, and building SEO-optimized client websites.</p>
+            <p className="text-accent-purple font-mono">Founder &amp; Tech Team Co-Lead of EvolVIT, VIT Bhopal&apos;s 100th official university club.</p>
           </div>
         );
         break;
@@ -83,12 +83,17 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         response = (
           <div className="space-y-2.5 text-xs">
             <div>
-              <p className="text-accent-purple font-bold">1. Software Development Intern — Datatrack <span className="text-muted font-normal">(Mar &apos;26 – Jun &apos;26)</span></p>
+              <p className="text-accent-purple font-bold">1. Web Development &amp; SEO Intern — Ripplica <span className="text-muted font-normal">(Sep &apos;26 – Present)</span></p>
+              <p className="text-muted">• Develop and improve live client websites, working on frontend development and CMS integration.</p>
+              <p className="text-muted">• Handle SEO and website optimization, building with static site generation (SSG) alongside prior SSR experience.</p>
+            </div>
+            <div>
+              <p className="text-accent-emerald font-bold">2. Software Development Intern — Datatrack <span className="text-muted font-normal">(Mar &apos;26 – Jun &apos;26)</span></p>
               <p className="text-muted">• Building an AI-powered worksheet generation platform (pracup.co.in) that automates personalized worksheet creation, currently in active testing and refinement ahead of public launch.</p>
               <p className="text-muted">• Developed responsive landing pages and interactive 3D web experiences using Next.js and Speckit for client-facing product pages.</p>
             </div>
             <div>
-              <p className="text-accent-cyan font-bold">2. Software Development Intern — Quantumard <span className="text-muted font-normal">(Dec &apos;25 – Feb &apos;26)</span></p>
+              <p className="text-accent-cyan font-bold">3. Software Development Intern — Quantumard <span className="text-muted font-normal">(Dec &apos;25 – Feb &apos;26)</span></p>
               <p className="text-muted">• Built a Role-Based Project Management System with secure role-based access control, task tracking, and multi-user collaboration using Next.js and MongoDB.</p>
               <p className="text-muted">• Participated in requirement analysis, testing, and deployment of scalable web applications across team project pipelines.</p>
             </div>
@@ -102,9 +107,9 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
         response = (
           <div className="space-y-2.5 text-xs">
             <div>
-              <p className="text-accent-purple font-bold">1. Founder &amp; President — EvolVIT Club, VIT Bhopal University <span className="text-muted font-normal">(Oct &apos;25 – Present)</span></p>
-              <p className="text-muted">• Founded VIT Bhopal&apos;s 100th official club, connecting students with industry through internships and live projects.</p>
-              <p className="text-muted">• Launched the EvolVIT Internship Program and led the Idea2Industry initiative, linking students with startups, ideathons, and industrial visits.</p>
+              <p className="text-accent-purple font-bold">1. Tech Team Co-Lead &amp; Founder — EvolVIT Club, VIT Bhopal University</p>
+              <p className="text-muted">• Tech Team Co-Lead (Sep &apos;26 – Present): Lead the club&apos;s tech team, mentoring members and building web and automation projects.</p>
+              <p className="text-muted">• Founder &amp; Student Coordinator (Oct &apos;25 – Aug &apos;26): Founded VIT Bhopal&apos;s 100th official club, launched EvolVIT Internship Program &amp; Idea2Industry initiative.</p>
             </div>
             <div>
               <p className="text-accent-cyan font-bold">2. Tech Team Co-Lead — FinTech Club, VIT Bhopal University <span className="text-muted font-normal">(Nov &apos;25 – Present)</span></p>
@@ -147,11 +152,11 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
             </div>
             <div>
               <p className="text-accent-cyan font-bold">2. DAV Kapildev Public School, Ranchi <span className="text-muted font-normal">(2021 – 2023)</span></p>
-              <p className="text-muted">Higher Secondary (CBSE) — <span className="text-ivory font-mono font-bold">84%</span></p>
+              <p className="text-muted">Higher Secondary (CBSE)</p>
             </div>
             <div>
               <p className="text-accent-amber font-bold">3. St. Francis School, Ranchi <span className="text-muted font-normal">(2009 – 2021)</span></p>
-              <p className="text-muted">High School (ICSE) — <span className="text-ivory font-mono font-bold">82.4%</span></p>
+              <p className="text-muted">High School (ICSE)</p>
             </div>
           </div>
         );
@@ -163,11 +168,13 @@ export default function TerminalModal({ isOpen, onClose }: TerminalModalProps) {
             <p className="text-accent-purple font-bold">// Languages:</p>
             <p className="text-ivory">C++, Java, Python, JavaScript, TypeScript, HTML, CSS</p>
             <p className="text-accent-cyan font-bold mt-2">// Frameworks &amp; Libraries:</p>
-            <p className="text-ivory">React.js, Next.js, React Three Fiber (R3F), Three.js, Node.js, Tailwind CSS</p>
-            <p className="text-accent-emerald font-bold mt-2">// AI &amp; Automation:</p>
-            <p className="text-ivory">n8n (workflow automation), AI agent orchestration, prompt engineering, Speckit (AI-assisted spec-driven development)</p>
-            <p className="text-accent-amber font-bold mt-2">// Tools &amp; Platforms:</p>
-            <p className="text-ivory">Git, GitHub, Vercel, Render, Railway, MongoDB</p>
+            <p className="text-ivory">React.js, Next.js, Node.js, Tailwind CSS, Three.js, React Three Fiber, GSAP</p>
+            <p className="text-accent-emerald font-bold mt-2">// Web &amp; SEO:</p>
+            <p className="text-ivory">SSG, SSR, CMS Integration, Technical SEO, Website Optimization</p>
+            <p className="text-accent-amber font-bold mt-2">// AI &amp; Automation:</p>
+            <p className="text-ivory">n8n (workflow automation), prompt engineering, Speckit</p>
+            <p className="text-accent-purple font-bold mt-2">// Tools &amp; Platforms:</p>
+            <p className="text-ivory">Git, GitHub, Vercel, MongoDB, AWS (fundamentals)</p>
           </div>
         );
         break;

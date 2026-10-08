@@ -11,18 +11,18 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://ayush-karan-portfolio-eta.vercel.app"),
   title: "Ayush Karan — Full-Stack & Agentic AI Engineer",
   description:
-    "Portfolio of Ayush Karan, Full-Stack Software Developer & AI Engineer at VIT Bhopal. Intern at Datatrack & Quantumard. Specialist in Next.js 14, React, Three.js, and n8n Agent Orchestration.",
+    "Portfolio of Ayush Karan, Web Dev & SEO Intern at Ripplica, Ex-Software Development Intern at Datatrack & Quantumard. Specialist in Next.js, React, n8n Agent Orchestration, SEO, and Speckit.",
   keywords: [
     "Ayush Karan",
     "Full Stack Developer",
-    "AI Engineer",
-    "Next.js Developer",
-    "n8n AI Agents",
-    "VIT Bhopal",
+    "Web Development & SEO",
+    "Ripplica Intern",
     "Datatrack Intern",
     "Quantumard Intern",
+    "n8n AI Agents",
+    "VIT Bhopal",
     "EvolVIT Founder",
-    "Three.js Portfolio",
+    "Speckit",
   ],
   icons: {
     icon: [

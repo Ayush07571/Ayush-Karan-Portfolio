@@ -35,33 +35,33 @@ export default function About() {
               </div>
 
               <p className="mt-5 text-base sm:text-xl leading-relaxed text-ivory font-normal">
-                I am a Full-Stack Engineer, Aspiring Cloud Architect, and Computer Science Senior at VIT Bhopal specializing in Cloud Computing &amp; Automation.
+                I am a Full-Stack Engineer, Aspiring Cloud Architect, and Computer Science student at VIT Bhopal specializing in Cloud Computing &amp; Automation.
               </p>
 
               <p className="mt-3 sm:mt-4 text-xs sm:text-sm text-muted leading-relaxed">
-                With completed full-stack engineering internships at Datatrack (<a href="https://pracup.co.in" target="_blank" rel="noopener noreferrer" className="text-accent-cyan underline hover:text-accent-purple transition-colors font-medium">pracup.co.in</a>) and Quantumard,
-                I build cloud-native web applications, distributed system architectures, custom n8n automation pipelines, and multi-agent AI review systems.
+                With experience across three internships at Ripplica (Web Dev &amp; SEO Intern), Datatrack (<a href="https://pracup.co.in" target="_blank" rel="noopener noreferrer" className="text-accent-cyan underline hover:text-accent-purple transition-colors font-medium">pracup.co.in</a>), and Quantumard,
+                I build production-grade Next.js/React applications, SEO-optimized client websites, custom n8n automation workflows, and agentic AI pipelines.
               </p>
             </div>
 
             <div className="mt-6 sm:mt-8 flex flex-wrap gap-2 pt-4 border-t border-line">
               <span className="rounded-lg border border-line bg-ink/60 px-2.5 py-1 font-sans text-[11px] font-medium text-muted">
-                Cloud Architecture
+                Web Dev &amp; SEO
               </span>
               <span className="rounded-lg border border-line bg-ink/60 px-2.5 py-1 font-sans text-[11px] font-medium text-muted">
-                Next.js 14
+                Next.js &amp; React
               </span>
               <span className="rounded-lg border border-line bg-ink/60 px-2.5 py-1 font-sans text-[11px] font-medium text-muted">
-                React.js
+                SSG / SSR
               </span>
               <span className="rounded-lg border border-line bg-ink/60 px-2.5 py-1 font-sans text-[11px] font-medium text-muted">
                 n8n AI Agents
               </span>
               <span className="rounded-lg border border-line bg-ink/60 px-2.5 py-1 font-sans text-[11px] font-medium text-muted">
-                MongoDB
+                Speckit
               </span>
               <span className="rounded-lg border border-line bg-ink/60 px-2.5 py-1 font-sans text-[11px] font-medium text-muted">
-                Node.js
+                Cloud &amp; MongoDB
               </span>
             </div>
           </div>
@@ -82,16 +82,20 @@ export default function About() {
               Ayush Karan
             </h3>
             <p className="mt-1 font-sans text-xs text-accent-cyan font-semibold">
-              Full-Stack &amp; Aspiring Cloud Architect
+              Full-Stack &amp; AI Automation Engineer
             </p>
 
             <div className="mt-4 w-full rounded-xl border border-line bg-ink/50 p-3 text-left space-y-2">
               <div className="flex items-center gap-2 text-xs text-muted">
-                <CheckCircle2 className="h-3.5 w-3.5 text-accent-emerald shrink-0" />
-                <span>Completed Intern @ Datatrack</span>
+                <CheckCircle2 className="h-3.5 w-3.5 text-accent-purple shrink-0" />
+                <span>Web Dev &amp; SEO Intern @ Ripplica</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-muted">
                 <CheckCircle2 className="h-3.5 w-3.5 text-accent-emerald shrink-0" />
+                <span>Ex-Intern @ Datatrack &amp; Quantumard</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-muted">
+                <CheckCircle2 className="h-3.5 w-3.5 text-accent-cyan shrink-0" />
                 <span>B.Tech Cloud Computing &amp; Automation</span>
               </div>
             </div>
@@ -113,21 +117,21 @@ export default function About() {
               <div className="mt-5 space-y-4">
                 <div className="rounded-xl border border-line bg-panel-light/70 p-4">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h4 className="font-sans text-sm font-bold text-ivory">Founder &bull; EvolVIT Club</h4>
+                    <h4 className="font-sans text-sm font-bold text-ivory">Tech Co-Lead &amp; Founder &bull; EvolVIT Club</h4>
                     <span className="font-sans text-[10px] font-semibold rounded bg-accent-purple/20 px-2 py-0.5 text-accent-purple">100th Official Club</span>
                   </div>
                   <p className="mt-2 text-xs text-muted leading-relaxed">
-                    Founded VIT Bhopal&apos;s 100th official university club, bridging student developers directly to real-world software projects and internship pipelines.
+                    Founded VIT Bhopal&apos;s 100th official club. Currently Tech Team Co-Lead mentoring members on web &amp; automation projects; launched EvolVIT Internship Program &amp; Idea2Industry initiative.
                   </p>
                 </div>
 
                 <div className="rounded-xl border border-line bg-panel-light/70 p-4">
                   <div className="flex flex-wrap items-center justify-between gap-1">
-                    <h4 className="font-sans text-sm font-bold text-ivory">Tech Co-Lead &bull; FinTech Club</h4>
+                    <h4 className="font-sans text-sm font-bold text-ivory">Tech Team Co-Lead &bull; FinTech Club</h4>
                     <span className="font-sans text-[10px] font-semibold rounded bg-accent-cyan/20 px-2 py-0.5 text-accent-cyan">Promoted</span>
                   </div>
                   <p className="mt-2 text-xs text-muted leading-relaxed">
-                    Promoted from core developer to tech co-lead, mentoring club members and architecting internal financial management tooling.
+                    Promoted from Core Member to Tech Team Co-Lead based on technical contributions; mentoring members and leading FinTech web projects.
                   </p>
                 </div>
               </div>
